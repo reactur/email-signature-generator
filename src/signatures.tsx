@@ -636,7 +636,7 @@ export const signatures = [
           <Globe size={18} style={{ color: "#6366F1" }} />
           <span>
             <a
-              href={props.website}
+              href={`https://${props.website}`}
               style={{ color: "#4A90E2", textDecoration: "none" }}
               target="_blank"
               rel="noopener noreferrer"
