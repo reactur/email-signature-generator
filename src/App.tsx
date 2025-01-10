@@ -1,11 +1,5 @@
 import React, { useState } from "react";
 import {
-  Mail,
-  Phone,
-  Globe,
-  Linkedin,
-  Twitter,
-  MapPin,
   Copy,
   Check,
 } from "lucide-react";

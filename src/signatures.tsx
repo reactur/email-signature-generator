@@ -244,25 +244,27 @@ export const signatures = [
   (props: SignatureProps) => (
     <div
       style={{
-        padding: "20px",
-        background: "linear-gradient(to right, #6366F1, #7C3AED)",
-        color: "white",
-        borderRadius: "12px",
-        boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
-        animation: "zoom-in 0.3s ease-in-out",
-        fontFamily: "'Poppins', sans-serif",
-        maxWidth: "400px",
+        padding: "30px",
+        background: "linear-gradient(135deg, #6EE7B7, #3B82F6)",
+        color: "#fff",
+        borderRadius: "20px",
+        boxShadow: "0px 20px 40px rgba(0, 0, 0, 0.15)",
+        fontFamily: "'Roboto', sans-serif",
+        maxWidth: "100%",
         margin: "auto",
+        border: "1px solid #E5E7EB",
+        width: "100%",
+        boxSizing: "border-box",
       }}
     >
-      <div style={{ textAlign: "center", marginBottom: "20px" }}>
+      <div style={{ textAlign: "center", marginBottom: "30px" }}>
         <h3
           style={{
-            fontSize: "1.6rem",
-            fontWeight: "bold",
+            fontSize: "2rem",
+            fontWeight: "700",
             margin: "0",
             textTransform: "uppercase",
-            letterSpacing: "1px",
+            letterSpacing: "2px",
             color: "#fff",
           }}
         >
@@ -270,87 +272,82 @@ export const signatures = [
         </h3>
         <p
           style={{
-            fontSize: "1.1rem",
-            opacity: 0.9,
+            fontSize: "1.2rem",
+            opacity: 0.85,
             margin: "5px 0",
             fontStyle: "italic",
+            color: "#d1d5db",
           }}
         >
           {props.title} at {props.company}
         </p>
       </div>
-
-      <div style={{ fontSize: "0.95rem", marginBottom: "20px" }}>
+  
+      <div style={{ fontSize: "1rem", marginBottom: "30px" }}>
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "12px",
-            marginBottom: "12px",
+            gap: "20px",
+            marginBottom: "20px",
             fontWeight: "500",
             transition: "all 0.3s ease",
           }}
         >
           <Mail
-            size={18}
+            size={20}
             style={{
-              color: "white",
-              transition: "transform 0.3s",
+              color: "#fff",
               cursor: "pointer",
+              transition: "transform 0.3s",
             }}
           />
-          <span style={{ color: "#e1e1e1", transition: "color 0.3s" }}>
-            {props.email}
-          </span>
+          <span style={{ color: "#f3f4f6" }}>{props.email}</span>
         </div>
-
+  
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "12px",
-            marginBottom: "12px",
+            gap: "20px",
+            marginBottom: "20px",
             fontWeight: "500",
-            transition: "all 0.3s ease",
           }}
         >
           <Phone
-            size={18}
+            size={20}
             style={{
-              color: "white",
-              transition: "transform 0.3s",
+              color: "#fff",
               cursor: "pointer",
+              transition: "transform 0.3s",
             }}
           />
-          <span style={{ color: "#e1e1e1", transition: "color 0.3s" }}>
-            {props.phone}
-          </span>
+          <span style={{ color: "#f3f4f6" }}>{props.phone}</span>
         </div>
       </div>
-
-      <div style={{ marginBottom: "20px" }}>
+  
+      <div style={{ marginBottom: "30px" }}>
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "12px",
-            marginBottom: "12px",
+            gap: "20px",
+            marginBottom: "20px",
             fontWeight: "500",
-            transition: "all 0.3s ease",
           }}
         >
           <Globe
-            size={18}
+            size={20}
             style={{
-              color: "white",
-              transition: "transform 0.3s",
+              color: "#fff",
               cursor: "pointer",
+              transition: "transform 0.3s",
             }}
           />
-          <span style={{ color: "#e1e1e1", transition: "color 0.3s" }}>
+          <span style={{ color: "#f3f4f6" }}>
             <a
               href={props.website}
-              style={{ color: "white", textDecoration: "none" }}
+              style={{ color: "#fff", textDecoration: "none" }}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -358,29 +355,28 @@ export const signatures = [
             </a>
           </span>
         </div>
-
+  
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "12px",
-            marginBottom: "12px",
+            gap: "20px",
+            marginBottom: "20px",
             fontWeight: "500",
-            transition: "all 0.3s ease",
           }}
         >
           <Linkedin
-            size={18}
+            size={20}
             style={{
-              color: "white",
-              transition: "transform 0.3s",
+              color: "#fff",
               cursor: "pointer",
+              transition: "transform 0.3s",
             }}
           />
-          <span style={{ color: "#e1e1e1", transition: "color 0.3s" }}>
+          <span style={{ color: "#f3f4f6" }}>
             <a
               href={props.linkedin}
-              style={{ color: "white", textDecoration: "none" }}
+              style={{ color: "#fff", textDecoration: "none" }}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -388,28 +384,28 @@ export const signatures = [
             </a>
           </span>
         </div>
+  
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "12px",
-            marginBottom: "12px",
+            gap: "20px",
+            marginBottom: "20px",
             fontWeight: "500",
-            transition: "all 0.3s ease",
           }}
         >
           <Twitter
-            size={18}
+            size={20}
             style={{
-              color: "white",
-              transition: "transform 0.3s",
+              color: "#fff",
               cursor: "pointer",
+              transition: "transform 0.3s",
             }}
           />
-          <span style={{ color: "#e1e1e1", transition: "color 0.3s" }}>
+          <span style={{ color: "#f3f4f6" }}>
             <a
               href={`https://twitter.com/${props.twitter.replace("@", "")}`}
-              style={{ color: "white", textDecoration: "none" }}
+              style={{ color: "#fff", textDecoration: "none" }}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -418,29 +414,29 @@ export const signatures = [
           </span>
         </div>
       </div>
+  
       <div
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "12px",
+          gap: "20px",
           fontWeight: "500",
-          transition: "all 0.3s ease",
         }}
       >
         <MapPin
-          size={18}
+          size={20}
           style={{
-            color: "white",
-            transition: "transform 0.3s",
+            color: "#fff",
             cursor: "pointer",
+            transition: "transform 0.3s",
           }}
         />
-        <span style={{ color: "#e1e1e1", transition: "color 0.3s" }}>
-          {props.location}
-        </span>
+        <span style={{ color: "#f3f4f6" }}>{props.location}</span>
       </div>
     </div>
   ),
+  
+  
 
   // Professional Dark S4
 
@@ -518,7 +514,7 @@ export const signatures = [
         >
           <Linkedin size={16} style={{ color: "#63B3ED" }} />
           <a
-            href={`https://${props.linkedin}`}
+            href={props.linkedin}
             style={{ color: "white", textDecoration: "none" }}
             target="_blank"
             rel="noopener noreferrer"
@@ -554,7 +550,7 @@ export const signatures = [
         >
           <Globe size={16} style={{ color: "#63B3ED" }} />
           <a
-            href={`https://${props.website}`}
+            href={props.website}
             style={{ color: "white", textDecoration: "none" }}
             target="_blank"
             rel="noopener noreferrer"
@@ -640,7 +636,7 @@ export const signatures = [
           <Globe size={18} style={{ color: "#6366F1" }} />
           <span>
             <a
-              href={`https://${props.website}`}
+              href={props.website}
               style={{ color: "#4A90E2", textDecoration: "none" }}
               target="_blank"
               rel="noopener noreferrer"
@@ -767,7 +763,7 @@ export const signatures = [
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <Globe size={16} style={{ color: "#fff" }} />
           <a
-            href={`https://${props.website}`}
+            href={props.website}
             style={{
               color: "#fff",
               textDecoration: "none",
@@ -876,7 +872,7 @@ export const signatures = [
         </a>
 
         <a
-          href={`https://${props.website}`}
+          href={props.website}
           style={{
             display: "flex",
             alignItems: "center",
@@ -1016,7 +1012,7 @@ export const signatures = [
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <Globe size={16} />{" "}
           <a
-            href={`https://${props.website}`}
+            href={props.website}
             style={{
               color: "#2563EB",
               textDecoration: "none",
