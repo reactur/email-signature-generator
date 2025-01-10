@@ -50,7 +50,7 @@ export const signatures = [
         </a>
 
         <a
-          href={props.linkedin}
+          href={props.linkedin ? `https://${props.linkedin}` : "#"}
           style={{
             color: "#9CA3AF",
             transition: "color 0.3s",
@@ -63,7 +63,7 @@ export const signatures = [
         </a>
 
         <a
-          href={props.twitter}
+           href={`https://twitter.com/${props.twitter.replace("@", "")}`}
           style={{
             color: "#9CA3AF",
             transition: "color 0.3s",
@@ -89,7 +89,7 @@ export const signatures = [
         </a>
 
         <a
-          href={props.website}
+          href={props.website ? `https://${props.website}` : "#"}
           style={{
             color: "#9CA3AF",
             transition: "color 0.3s",
@@ -180,7 +180,7 @@ export const signatures = [
           <Globe size={16} style={{ color: "#4F46E5" }} />
           <span>
             <a
-              href={props.website}
+              href={props.website ? `https://${props.website}` : "#"}
               style={{ color: "#4F46E5", textDecoration: "none" }}
               target="_blank"
               rel="noopener noreferrer"
@@ -213,7 +213,7 @@ export const signatures = [
           <Linkedin size={16} style={{ color: "#0077B5" }} />
           <span>
             <a
-              href={props.linkedin}
+              href={props.linkedin ? `https://${props.linkedin}` : "#"}
               style={{ color: "#0077B5", textDecoration: "none" }}
               target="_blank"
               rel="noopener noreferrer"
@@ -346,7 +346,7 @@ export const signatures = [
           />
           <span style={{ color: "#f3f4f6" }}>
             <a
-              href={props.website}
+              href={props.website ? `https://${props.website}` : "#"}
               style={{ color: "#fff", textDecoration: "none" }}
               target="_blank"
               rel="noopener noreferrer"
@@ -375,7 +375,7 @@ export const signatures = [
           />
           <span style={{ color: "#f3f4f6" }}>
             <a
-              href={props.linkedin}
+              href={props.linkedin ? `https://${props.linkedin}` : "#"}
               style={{ color: "#fff", textDecoration: "none" }}
               target="_blank"
               rel="noopener noreferrer"
@@ -514,7 +514,7 @@ export const signatures = [
         >
           <Linkedin size={16} style={{ color: "#63B3ED" }} />
           <a
-            href={props.linkedin}
+            href={props.linkedin ? `https://${props.linkedin}` : "#"}
             style={{ color: "white", textDecoration: "none" }}
             target="_blank"
             rel="noopener noreferrer"
@@ -550,7 +550,7 @@ export const signatures = [
         >
           <Globe size={16} style={{ color: "#63B3ED" }} />
           <a
-            href={props.website}
+            href={props.website ? `https://${props.website}` : "#"}
             style={{ color: "white", textDecoration: "none" }}
             target="_blank"
             rel="noopener noreferrer"
@@ -636,7 +636,7 @@ export const signatures = [
           <Globe size={18} style={{ color: "#6366F1" }} />
           <span>
             <a
-              href={`https://${props.website}`}
+              href={props.website ? `https://${props.website}` : "#"}
               style={{ color: "#4A90E2", textDecoration: "none" }}
               target="_blank"
               rel="noopener noreferrer"
@@ -661,7 +661,7 @@ export const signatures = [
         }}
       >
         <a
-          href={props.linkedin}
+          href={props.linkedin ? `https://${props.linkedin}` : "#"}
           style={{
             color: "#718096",
             textDecoration: "none",
@@ -763,7 +763,7 @@ export const signatures = [
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <Globe size={16} style={{ color: "#fff" }} />
           <a
-            href={props.website}
+            href={props.website ? `https://${props.website}` : "#"}
             style={{
               color: "#fff",
               textDecoration: "none",
@@ -777,7 +777,7 @@ export const signatures = [
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <Linkedin size={16} style={{ color: "#fff" }} />
           <a
-            href={props.linkedin}
+            href={props.linkedin ? `https://${props.linkedin}` : "#"}
             style={{
               color: "#fff",
               textDecoration: "none",
@@ -872,7 +872,7 @@ export const signatures = [
         </a>
 
         <a
-          href={props.website}
+          href={props.website ? `https://${props.website}` : "#"}
           style={{
             display: "flex",
             alignItems: "center",
@@ -894,7 +894,7 @@ export const signatures = [
         </a>
 
         <a
-          href={props.linkedin}
+          href={props.linkedin ? `https://${props.linkedin}` : "#"}
           style={{
             display: "flex",
             alignItems: "center",
@@ -1012,9 +1012,9 @@ export const signatures = [
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <Globe size={16} />{" "}
           <a
-            href={props.website}
+            href={props.website ? `https://${props.website}` : "#"}
             style={{
-              color: "#2563EB",
+              color: "#4B5563",
               textDecoration: "none",
             }}
             target="_blank"
@@ -1027,9 +1027,9 @@ export const signatures = [
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <Linkedin size={16} />{" "}
           <a
-            href={props.linkedin}
+            href={props.linkedin ? `https://${props.linkedin}` : "#"}
             style={{
-              color: "#2563EB",
+              color: "#4B5563",
               textDecoration: "none",
             }}
             target="_blank"
@@ -1044,7 +1044,7 @@ export const signatures = [
           <a
             href={`https://twitter.com/${props.twitter.replace("@", "")}`}
             style={{
-              color: "#2563EB",
+              color: "#4B5563",
               textDecoration: "none",
             }}
             target="_blank"
@@ -1098,7 +1098,7 @@ export const signatures = [
           }}
         >
           <a
-            href={props.linkedin}
+            href={props.linkedin ? `https://${props.linkedin}` : "#"}
             style={{
               color: "#2563eb",
               textDecoration: "none",
@@ -1111,7 +1111,7 @@ export const signatures = [
           </a>
 
           <a
-            href={props.twitter}
+             href={`https://twitter.com/${props.twitter.replace("@", "")}`}
             style={{
               color: "#2563eb",
               textDecoration: "none",
