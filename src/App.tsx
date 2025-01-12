@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import {
-  Copy,
-  Check,
-} from "lucide-react";
+import { Copy, Check } from "lucide-react";
 import { signatures } from "./signatures";
 import "./App.css";
 
@@ -19,6 +16,7 @@ function App() {
     linkedin: "linkedin.com/in/johndoe",
     twitter: "@johndoe",
     location: "San Francisco, CA",
+    image: "", 
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,6 +24,23 @@ function App() {
       ...formData,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const imageData = reader.result as string;
+
+        // Update state
+        setFormData((prev) => ({ ...prev, image: imageData }));
+
+        // Save image to local storage
+        localStorage.setItem("uploadedImage", imageData);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const copyToClipboard = async () => {
@@ -46,9 +61,9 @@ function App() {
             </body>
           </html>
         `;
-  
+
         await navigator.clipboard.writeText(htmlContent);
-  
+
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       } catch (err) {
@@ -56,7 +71,6 @@ function App() {
       }
     }
   };
-  
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-100 to-purple-100">
@@ -77,13 +91,22 @@ function App() {
                   <label className="block text-sm font-medium text-gray-700 mb-1 capitalize">
                     {key.replace("_", " ")}
                   </label>
-                  <input
-                    type="text"
-                    name={key}
-                    value={value}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                  />
+                  {key === "image" ? (
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    />
+                  ) : (
+                    <input
+                      type="text"
+                      name={key}
+                      value={value}
+                      onChange={handleInputChange}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    />
+                  )}
                 </div>
               ))}
             </div>
