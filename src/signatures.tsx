@@ -8,6 +8,7 @@ import SignatureSeven from "./components/SignatureSeven";
 import SignatureEight from "./components/SignatureEight";
 import SignatureNine from "./components/SignatureNine";
 import SignatureTen from "./components/SignatureTen";
+import SignatureEleven from "./components/SignatureEleven";
 
 interface SignatureProps {
   name: string;
@@ -33,4 +34,20 @@ export const signatures: ((props: SignatureProps) => JSX.Element)[] = [
   (props) => <SignatureEight {...props} />,
   (props) => <SignatureNine {...props} />,
   (props) => <SignatureTen {...props} />,
+  (props) => (
+    <SignatureEleven
+      {...props}
+      company="Company Ltd"
+      address="386 Road, Imiganaryport, SK2 7BY, Mars"
+      companyNo="12367617"
+      vat="344865081"
+      logo="https://dummyimage.com/600x400/ffffff/000000&text=Logo"
+      tagline="Great Tagline. Made simple."
+      socialMedia={{
+        facebook: "https://facebook.com/dummyprofile",
+        instagram: "https://instagram.com/dummyprofile",
+        youtube: "https://youtube.com/dummyprofile",
+      }}
+    />
+  ),
 ];
