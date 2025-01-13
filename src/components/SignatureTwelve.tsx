@@ -6,7 +6,7 @@ interface SignatureProps {
   title: string;
   phone: string;
   email: string;
-  address: string;
+  location: string;
   website: string;
   image: string;
   socialMedia: {
@@ -156,7 +156,7 @@ const SignatureTwelve: React.FC<SignatureProps> = (props) => {
             fontSize: "0.9rem",
           }}
         >
-          📍 {props.address}
+          📍 {props.location}
         </p>
         <p
           style={{

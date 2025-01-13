@@ -29,7 +29,6 @@ export const signatures: ((props: SignatureProps) => JSX.Element)[] = [
   (props) => (
     <SignatureTwelve
       {...props}
-      address="XXXX Ridge Road, Conway, XX 67XXX"
       socialMedia={{
         facebook: "https://facebook.com/",
         linkedin: "https://linkedin.com/",
