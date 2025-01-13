@@ -10,7 +10,7 @@ interface SignatureProps {
   linkedin: string;
   twitter: string;
   location: string;
-  image: string; // Profile image
+  image: string; 
 }
 
 const SignatureThree = (props: SignatureProps) => {
@@ -29,8 +29,12 @@ const SignatureThree = (props: SignatureProps) => {
         boxSizing: "border-box",
       }}
     >
-      {/* Greeting message */}
-      <div style={{ textAlign: "center", marginBottom: "20px" }}>
+      <div
+        style={{
+          textAlign: "center",
+          marginBottom: "20px",
+        }}
+      >
         <h4
           style={{
             fontSize: "1.2rem",
@@ -43,9 +47,15 @@ const SignatureThree = (props: SignatureProps) => {
         </h4>
       </div>
 
-     
-
-      <div style={{ textAlign: "center", marginBottom: "30px" }}>
+      <div
+        style={{
+          textAlign: "center",
+          marginBottom: "30px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         {props.image && (
           <img
             src={props.image}
@@ -57,7 +67,6 @@ const SignatureThree = (props: SignatureProps) => {
               objectFit: "cover",
               border: "2px solid #3B82F6",
               marginBottom: "15px",
-
             }}
           />
         )}
@@ -187,7 +196,7 @@ const SignatureThree = (props: SignatureProps) => {
         <span>{props.location}</span>
       </div>
 
-       <div style={{ textAlign: "center", marginBottom: "20px" }}>
+      <div style={{ textAlign: "center", marginBottom: "20px" }}>
         <img
           src="https://assets.hongkiat.com/uploads/psd-text-svg/logo-example.jpg"
           alt={`${props.company} logo`}

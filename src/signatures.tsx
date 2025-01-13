@@ -9,6 +9,7 @@ import SignatureEight from "./components/SignatureEight";
 import SignatureNine from "./components/SignatureNine";
 import SignatureTen from "./components/SignatureTen";
 import SignatureEleven from "./components/SignatureEleven";
+import SignatureTwelve from "./components/SignatureTwelve";
 
 interface SignatureProps {
   name: string;
@@ -25,6 +26,19 @@ interface SignatureProps {
 
 export const signatures: ((props: SignatureProps) => JSX.Element)[] = [
   (props) => <SignatureOne {...props} />,
+  (props) => (
+    <SignatureTwelve
+      {...props}
+      address="XXXX Ridge Road, Conway, XX 67XXX"
+      socialMedia={{
+        facebook: "https://facebook.com/",
+        linkedin: "https://linkedin.com/",
+        instagram: "https://instagram.com/",
+        twitter: "https://twitter.com/",
+        youtube: "https://youtube.com/",
+      }}
+    />
+  ),
   (props) => <SignatureTwo {...props} />,
   (props) => <SignatureThree {...props} />,
   (props) => <SignatureFour {...props} />,
@@ -50,4 +64,5 @@ export const signatures: ((props: SignatureProps) => JSX.Element)[] = [
       }}
     />
   ),
+ 
 ];

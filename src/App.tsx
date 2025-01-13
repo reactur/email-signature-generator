@@ -16,7 +16,7 @@ function App() {
     linkedin: "linkedin.com/in/MitchelRogers",
     twitter: "@mitchelrogers",
     location: "San Francisco, CA",
-    image: "", 
+    image: "https://dummyimage.com/600x400/ffffff/000000&text=Image",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -138,7 +138,7 @@ function App() {
                 Choose Style
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-                {Array.from({ length: 11 }).map((_, index) => (
+                {Array.from({ length: 12 }).map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setSelectedSignature(index)}
