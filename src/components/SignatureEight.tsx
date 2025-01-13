@@ -10,6 +10,7 @@ interface SignatureProps {
   linkedin: string;
   twitter: string;
   location: string;
+  image: string;
 }
 
 const SignatureEight = (props: SignatureProps) => {
@@ -17,46 +18,63 @@ const SignatureEight = (props: SignatureProps) => {
     <div
       style={{
         position: "relative",
-        padding: "16px",
-        backgroundColor: "#fff",
-        border: "2px solid #000",
+        padding: "20px",
+        backgroundColor: "#F9FAFB",
+        border: "2px solid #E5E7EB",
         borderRadius: "12px",
         fontFamily: "Arial, sans-serif",
-        animation: "slide-up 0.4s ease-in-out",
+        width: "100%",
+        maxWidth: "400px",
         margin: "auto",
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
       }}
     >
       <div
         style={{
-          position: "absolute",
-          top: 0,
-          right: 0,
-          width: "80px",
-          height: "80px",
-          backgroundColor: "#FACC15",
-          borderBottomLeftRadius: "100%",
-          zIndex: -1,
+          display: "flex",
+          alignItems: "center",
+          gap: "16px",
+          marginBottom: "16px",
         }}
-      ></div>
-
-      <h3 style={{ fontSize: "1.5rem", fontWeight: "700", color: "#1F2937" }}>
-        {props.name}
-      </h3>
-      <p style={{ color: "#374151", fontSize: "1rem", margin: "4px 0" }}>
-        {props.title}
-      </p>
-      <p
-        style={{ color: "#6B7280", fontSize: "0.875rem", marginBottom: "8px" }}
       >
-        {props.company}
-      </p>
+        {props.image && (
+          <img
+            src={props.image}
+            alt={`${props.name}'s avatar`}
+            style={{
+              width: "80px",
+              height: "80px",
+              borderRadius: "50%",
+              objectFit: "cover",
+              border: "2px solid #FACC15",
+            }}
+          />
+        )}
+        <div>
+          <h3
+            style={{
+              fontSize: "1.5rem",
+              fontWeight: "700",
+              color: "#1F2937",
+              margin: 0,
+            }}
+          >
+            {props.name}
+          </h3>
+          <p style={{ color: "#374151", fontSize: "1rem", margin: "4px 0" }}>
+            {props.title}
+          </p>
+          <p style={{ color: "#6B7280", fontSize: "0.875rem", margin: 0 }}>
+            {props.company}
+          </p>
+        </div>
+      </div>
 
       <div
         style={{
-          marginTop: "12px",
           display: "flex",
           flexDirection: "column",
-          gap: "8px",
+          gap: "12px",
           fontSize: "0.875rem",
           color: "#4B5563",
         }}
@@ -80,6 +98,7 @@ const SignatureEight = (props: SignatureProps) => {
             style={{
               color: "#4B5563",
               textDecoration: "none",
+              fontWeight: "bold",
             }}
             target="_blank"
             rel="noopener noreferrer"
@@ -95,6 +114,7 @@ const SignatureEight = (props: SignatureProps) => {
             style={{
               color: "#4B5563",
               textDecoration: "none",
+              fontWeight: "bold",
             }}
             target="_blank"
             rel="noopener noreferrer"
@@ -110,6 +130,7 @@ const SignatureEight = (props: SignatureProps) => {
             style={{
               color: "#4B5563",
               textDecoration: "none",
+              fontWeight: "bold",
             }}
             target="_blank"
             rel="noopener noreferrer"
@@ -123,4 +144,3 @@ const SignatureEight = (props: SignatureProps) => {
 };
 
 export default SignatureEight;
-
