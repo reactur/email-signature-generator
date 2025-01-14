@@ -1,5 +1,15 @@
 import React from "react";
-import { Facebook, Linkedin, Instagram, Twitter, Youtube } from "lucide-react";
+import {
+  Facebook,
+  Linkedin,
+  Instagram,
+  Twitter,
+  Youtube,
+  Mail,
+  Phone,
+  Globe,
+  MapPin,
+} from "lucide-react";
 
 interface SignatureProps {
   name: string;
@@ -136,36 +146,51 @@ const SignatureTwelve: React.FC<SignatureProps> = (props) => {
             margin: "5px 0",
             color: "#333",
             fontSize: "0.9rem",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
           }}
         >
-          📞 {props.phone}
+          <Phone size={16} color="#4CAF50" />
+          {props.phone}
         </p>
         <p
           style={{
             margin: "5px 0",
             color: "#333",
             fontSize: "0.9rem",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
           }}
         >
-          ✉️ {props.email}
+          <Mail size={16} color="#FF5722" />
+          {props.email}
         </p>
         <p
           style={{
             margin: "5px 0",
             color: "#333",
             fontSize: "0.9rem",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
           }}
         >
-          📍 {props.location}
+          <MapPin size={16} color="#2196F3" />
+          {props.location}
         </p>
         <p
           style={{
             margin: "5px 0",
             color: "#333",
             fontSize: "0.9rem",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
           }}
         >
-          🌐{" "}
+          <Globe size={16} color="#9C27B0" />
           <a
             href={props.website}
             target="_blank"

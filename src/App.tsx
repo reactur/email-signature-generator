@@ -25,7 +25,7 @@ const App: React.FC = () => {
     company: "Quantum Horizons Ltd.",
     email: "orion.vega@gmail.com",
     phone: "+1 (888) 999-8765",
-    website: "www.quantumhorizons.com",
+    website: "quantumhorizons.com",
     linkedin: "linkedin.com/in/OrionVega",
     twitter: "@datajourney",
     location: "Alpha Centauri",
