@@ -25,7 +25,6 @@ interface SignatureProps {
 }
 
 export const signatures: ((props: SignatureProps) => JSX.Element)[] = [
-  (props) => <SignatureOne {...props} />,
   (props) => (
     <SignatureTwelve
       {...props}
@@ -38,6 +37,7 @@ export const signatures: ((props: SignatureProps) => JSX.Element)[] = [
       }}
     />
   ),
+  (props) => <SignatureOne {...props} />,
   (props) => <SignatureTwo {...props} />,
   (props) => <SignatureThree {...props} />,
   (props) => <SignatureFour {...props} />,
@@ -51,7 +51,7 @@ export const signatures: ((props: SignatureProps) => JSX.Element)[] = [
     <SignatureEleven
       {...props}
       company="Company Ltd"
-      address="386 Road, Imiganaryport, SK2 7BY, Mars"
+      address={props.location}
       companyNo="12367617"
       vat="344865081"
       logo="https://dummyimage.com/600x400/ffffff/000000&text=Logo"
@@ -63,5 +63,4 @@ export const signatures: ((props: SignatureProps) => JSX.Element)[] = [
       }}
     />
   ),
- 
 ];

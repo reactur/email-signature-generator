@@ -10,203 +10,133 @@ interface SignatureProps {
   linkedin: string;
   twitter: string;
   location: string;
-  image: string; 
+  image: string;
 }
 
 const SignatureThree = (props: SignatureProps) => {
   return (
     <div
       style={{
-        padding: "30px",
-        background: "linear-gradient(135deg, #1E293B, #3B82F6)",
-        color: "#fff",
-        borderRadius: "20px",
-        boxShadow: "0px 20px 40px rgba(0, 0, 0, 0.15)",
-        fontFamily: "'Roboto', sans-serif",
+        width: "450px",
         margin: "auto",
-        border: "1px solid #E5E7EB",
-        width: "100%",
-        boxSizing: "border-box",
+        backgroundColor: "#ffffff",
+        borderRadius: "12px",
+        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.15)",
+        fontFamily: "'Arial', sans-serif",
+        overflow: "hidden",
       }}
     >
+      {/* Image Section */}
       <div
         style={{
-          textAlign: "center",
-          marginBottom: "20px",
-        }}
-      >
-        <h4
-          style={{
-            fontSize: "1.2rem",
-            fontStyle: "italic",
-            color: "#d1d5db",
-            margin: 0,
-          }}
-        >
-          With regards,
-        </h4>
-      </div>
-
-      <div
-        style={{
-          textAlign: "center",
-          marginBottom: "30px",
+          backgroundColor: "#007BFF",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          padding: "20px 0",
         }}
       >
         {props.image && (
           <img
             src={props.image}
-            alt={`${props.name}'s profile`}
+            alt={`${props.name}'s avatar`}
             style={{
               width: "100px",
               height: "100px",
               borderRadius: "50%",
               objectFit: "cover",
-              border: "2px solid #3B82F6",
-              marginBottom: "15px",
+              border: "4px solid white",
             }}
           />
         )}
-        <h3
+        <h2
           style={{
-            fontSize: "1.8rem",
-            fontWeight: "700",
-            margin: "0",
-            textTransform: "uppercase",
-            letterSpacing: "1.5px",
+            color: "#ffffff",
+            fontSize: "1.5rem",
+            fontWeight: "bold",
+            marginTop: "10px",
           }}
         >
           {props.name}
-        </h3>
-        <p
-          style={{
-            fontSize: "1rem",
-            opacity: 0.9,
-            margin: "5px 0",
-            fontStyle: "italic",
-            color: "#d1d5db",
-          }}
-        >
-          {props.title} at {props.company}
+        </h2>
+        <p style={{ color: "#E2E8F0", fontSize: "1rem", marginBottom: "0" }}>
+          {props.title}
         </p>
       </div>
 
-      <div style={{ fontSize: "1rem", marginBottom: "20px" }}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "20px",
-            marginBottom: "15px",
-            fontWeight: "500",
-          }}
-        >
-          <Mail size={20} style={{ color: "#fff" }} />
+      {/* Info Section */}
+      <div
+        style={{
+          padding: "20px",
+          display: "grid",
+          gap: "16px",
+          fontSize: "0.9rem",
+          color: "#2D3748",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <Mail size={18} style={{ color: "#007BFF" }} />
           <span>{props.email}</span>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "20px",
-            marginBottom: "15px",
-            fontWeight: "500",
-          }}
-        >
-          <Phone size={20} style={{ color: "#fff" }} />
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <Phone size={18} style={{ color: "#007BFF" }} />
           <span>{props.phone}</span>
         </div>
-      </div>
 
-      <div style={{ marginBottom: "20px" }}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "20px",
-            marginBottom: "15px",
-            fontWeight: "500",
-          }}
-        >
-          <Globe size={20} style={{ color: "#fff" }} />
-          <a
-            href={props.website ? `https://${props.website}` : "#"}
-            style={{ color: "#fff", textDecoration: "none" }}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {props.website}
-          </a>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "20px",
-            marginBottom: "15px",
-            fontWeight: "500",
-          }}
-        >
-          <Linkedin size={20} style={{ color: "#fff" }} />
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <Linkedin size={18} style={{ color: "#007BFF" }} />
           <a
             href={props.linkedin ? `https://${props.linkedin}` : "#"}
-            style={{ color: "#fff", textDecoration: "none" }}
+            style={{ color: "#007BFF", textDecoration: "none" }}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {props.linkedin}
+            LinkedIn
           </a>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "20px",
-            marginBottom: "15px",
-            fontWeight: "500",
-          }}
-        >
-          <Twitter size={20} style={{ color: "#fff" }} />
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <Twitter size={18} style={{ color: "#007BFF" }} />
           <a
             href={`https://twitter.com/${props.twitter.replace("@", "")}`}
-            style={{ color: "#fff", textDecoration: "none" }}
+            style={{ color: "#007BFF", textDecoration: "none" }}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {props.twitter}
+            Twitter
           </a>
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <Globe size={18} style={{ color: "#007BFF" }} />
+          <a
+            href={props.website ? `https://${props.website}` : "#"}
+            style={{ color: "#007BFF", textDecoration: "none" }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Website
+          </a>
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <MapPin size={18} style={{ color: "#007BFF" }} />
+          <span>{props.location}</span>
         </div>
       </div>
 
       <div
         style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "20px",
-          fontWeight: "500",
+          backgroundColor: "#F7FAFC",
+          padding: "10px 20px",
+          textAlign: "center",
+          fontSize: "0.8rem",
+          color: "#A0AEC0",
+          borderTop: "1px solid #E2E8F0",
         }}
       >
-        <MapPin size={20} style={{ color: "#fff" }} />
-        <span>{props.location}</span>
-      </div>
-
-      <div style={{ textAlign: "center", marginBottom: "20px" }}>
-        <img
-          src="https://assets.hongkiat.com/uploads/psd-text-svg/logo-example.jpg"
-          alt={`${props.company} logo`}
-          style={{
-            width: "180px",
-            height: "180px",
-            objectFit: "contain",
-            marginBottom: "10px",
-          }}
-        />
+        © 2025 {props.company}. All rights reserved.
       </div>
     </div>
   );

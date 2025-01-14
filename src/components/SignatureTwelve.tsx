@@ -34,7 +34,7 @@ const SignatureTwelve: React.FC<SignatureProps> = (props) => {
         backgroundColor: "#fff",
       }}
     >
-      <div style={{ borderRight: "2px solid red", padding: "0 20px" }}>
+      <div style={{ borderRight: "2px solid #3b5998", padding: "0 20px" }}>
         {props.image && (
           <img
             src={props.image}

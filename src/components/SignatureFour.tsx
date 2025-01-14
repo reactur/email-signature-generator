@@ -76,7 +76,7 @@ const SignatureFour = (props: SignatureProps) => {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <Mail size={16} style={{ color: "#63B3ED" }} />
+          <Mail size={18} style={{ color: "#63B3ED" }} />
           <span>{props.email}</span>
         </div>
 

@@ -29,7 +29,7 @@ const SignatureOne = (props: SignatureProps) => {
           style={{
             width: "80px",
             height: "80px",
-            margin: "0 auto 16px auto", 
+            margin: "0 auto auto", 
             borderRadius: "50%", 
             overflow: "hidden", 
             border: "2px solid #E5E7EB", 
