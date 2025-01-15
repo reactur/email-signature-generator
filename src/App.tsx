@@ -58,8 +58,23 @@ const App: React.FC = () => {
     const signatureElement = document.querySelector(".signature-preview");
     if (signatureElement) {
       try {
-        const htmlContent = signatureElement.outerHTML;
+        const doctype = "<!DOCTYPE html>";
+        const htmlContent = `
+          ${doctype}
+          <html>
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Signature</title>
+            </head>
+            <body>
+              ${signatureElement.outerHTML}
+            </body>
+          </html>
+        `;
+
         await navigator.clipboard.writeText(htmlContent);
+
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       } catch (err) {
