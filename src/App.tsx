@@ -129,23 +129,7 @@ const App: React.FC = () => {
 
           {/* Preview Section */}
           <div className="space-y-6">
-            <div className="bg-white shadow-md rounded-lg p-6">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-semibold text-gray-700">
-                  Preview
-                </h2>
-                <button
-                  onClick={copyToClipboard}
-                  className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-all"
-                >
-                  {copied ? <Check size={20} /> : <Copy size={20} />}
-                  {copied ? "Copied!" : "Copy HTML"}
-                </button>
-              </div>
-              <div className="signature-preview">
-                {signatures[selectedSignature]({ ...formData })}
-              </div>
-            </div>
+           
 
             {/* Signature Selection */}
             <div className="bg-white shadow-md rounded-lg p-6">
@@ -166,6 +150,23 @@ const App: React.FC = () => {
                     Style {index + 1}
                   </button>
                 ))}
+              </div>
+            </div>
+            <div className="bg-white shadow-md rounded-lg p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-2xl font-semibold text-gray-700">
+                  Preview
+                </h2>
+                <button
+                  onClick={copyToClipboard}
+                  className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-all"
+                >
+                  {copied ? <Check size={20} /> : <Copy size={20} />}
+                  {copied ? "Copied!" : "Copy HTML"}
+                </button>
+              </div>
+              <div className="signature-preview">
+                {signatures[selectedSignature]({ ...formData })}
               </div>
             </div>
           </div>
