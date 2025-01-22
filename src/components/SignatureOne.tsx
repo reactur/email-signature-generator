@@ -1,14 +1,4 @@
-import {
-  Facebook,
-  Linkedin,
-  Instagram,
-  Twitter,
-  Youtube,
-  Mail,
-  Phone,
-  Globe,
-  MapPin,
-} from "lucide-react";
+import React from "react";
 
 interface SignatureProps {
   name: string;
@@ -29,178 +19,231 @@ interface SignatureProps {
 
 const SignatureOne = (props: SignatureProps) => {
   return (
-    <div
+    <table
+      cellPadding="0"
+      cellSpacing="0"
       style={{
-        fontFamily: "'Arial', sans-serif",
+        fontFamily: "Arial, sans-serif",
         color: "#000",
         maxWidth: "600px",
-        display: "flex",
-        alignItems: "center",
-        padding: "20px",
-        border: "2px solid #e0e0e0",
+        width: "100%",
+        border: "1px solid #e0e0e0",
         borderRadius: "10px",
-        gap: "20px",
-        backgroundColor: "#fff",
+        background:
+          "linear-gradient(135deg, #ffffff 50%, #f5f5f5 100%)",
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
       }}
     >
-      <div style={{ borderRight: "2px solid #3b5998", padding: "0 20px" }}>
-        {props.image && (
-          <img
-            src={props.image}
-            alt={`${props.name}'s profile`}
+      <tbody>
+        <tr>
+          {/* Left Column */}
+          <td
             style={{
-              width: "110px",
-              height: "110px",
-              borderRadius: "50%",
-              objectFit: "cover",
-              border: "2px solid #ddd",
-              marginBottom: "20px",
+              padding: "20px",
+              textAlign: "center",
+              verticalAlign: "top",
+              borderRight: "2px solid #0077b5",
             }}
-          />
-        )}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            gap: "10px",
-          }}
-        >
-          {props.socialMedia.facebook && (
-            <a
-              href={props.socialMedia.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "#3b5998" }}
-            >
-              <Facebook size={24} />
-            </a>
-          )}
-          {props.socialMedia.linkedin && (
-            <a
-              href={props.socialMedia.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "#0077b5" }}
-            >
-              <Linkedin size={24} />
-            </a>
-          )}
-          {props.socialMedia.instagram && (
-            <a
-              href={props.socialMedia.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "#e1306c" }}
-            >
-              <Instagram size={24} />
-            </a>
-          )}
-          {props.socialMedia.twitter && (
-            <a
-              href={props.socialMedia.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "#1da1f2" }}
-            >
-              <Twitter size={24} />
-            </a>
-          )}
-          {props.socialMedia.youtube && (
-            <a
-              href={props.socialMedia.youtube}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "#ff0000" }}
-            >
-              <Youtube size={24} />
-            </a>
-          )}
-        </div>
-      </div>
-
-      <div style={{ flex: 1 }}>
-        <h2
-          style={{
-            fontSize: "1.5rem",
-            fontWeight: "700",
-            margin: 0,
-            lineHeight: "1.2",
-          }}
-        >
-          {props.name}
-        </h2>
-        <p
-          style={{
-            margin: "5px 0",
-            fontWeight: "600",
-            color: "#555",
-            fontSize: "1rem",
-          }}
-        >
-          {props.title}
-        </p>
-        <p
-          style={{
-            margin: "5px 0",
-            color: "#333",
-            fontSize: "0.9rem",
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-          }}
-        >
-          <Phone size={16} color="#4CAF50" />
-          {props.phone}
-        </p>
-        <p
-          style={{
-            margin: "5px 0",
-            color: "#333",
-            fontSize: "0.9rem",
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-          }}
-        >
-          <Mail size={16} color="#FF5722" />
-          {props.email}
-        </p>
-        <p
-          style={{
-            margin: "5px 0",
-            color: "#333",
-            fontSize: "0.9rem",
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-          }}
-        >
-          <MapPin size={16} color="#2196F3" />
-          {props.location}
-        </p>
-        <p
-          style={{
-            margin: "5px 0",
-            color: "#333",
-            fontSize: "0.9rem",
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-          }}
-        >
-          <Globe size={16} color="#9C27B0" />
-          <a
-            href={props.website}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#0073e6", textDecoration: "none" }}
           >
-            {props.website}
-          </a>
-        </p>
-      </div>
-    </div>
+            {/* Profile Image */}
+            {props.image && (
+              <img
+                src={props.image}
+                alt={`${props.name}'s profile`}
+                style={{
+                  width: "120px",
+                  height: "120px",
+                  objectFit: "cover",
+                  borderRadius: "50%",
+                  border: "3px solid #ddd",
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                  marginBottom: "15px",
+                }}
+              />
+            )}
+
+            {/* Social Media Icons */}
+            <table
+              cellPadding="0"
+              cellSpacing="0"
+              style={{ margin: "0 auto" }}
+            >
+              <tbody>
+                <tr>
+                  {props.socialMedia.facebook && (
+                    <td style={{ padding: "0 8px" }}>
+                      <a
+                        href={props.socialMedia.facebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ textDecoration: "none" }}
+                      >
+                        <img
+                          src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                          alt="Facebook"
+                          width="24"
+                          height="24"
+                          style={{
+                            filter: "grayscale(100%)",
+                            transition: "filter 0.3s",
+                          }}
+                          onMouseOver={(e) =>
+                            (e.currentTarget.style.filter = "grayscale(0%)")
+                          }
+                          onMouseOut={(e) =>
+                            (e.currentTarget.style.filter = "grayscale(100%)")
+                          }
+                        />
+                      </a>
+                    </td>
+                  )}
+                  {props.socialMedia.linkedin && (
+                    <td style={{ padding: "0 8px" }}>
+                      <a
+                        href={props.socialMedia.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ textDecoration: "none" }}
+                      >
+                        <img
+                          src="https://cdn-icons-png.flaticon.com/512/733/733561.png"
+                          alt="LinkedIn"
+                          width="24"
+                          height="24"
+                          style={{
+                            filter: "grayscale(100%)",
+                            transition: "filter 0.3s",
+                          }}
+                          onMouseOver={(e) =>
+                            (e.currentTarget.style.filter = "grayscale(0%)")
+                          }
+                          onMouseOut={(e) =>
+                            (e.currentTarget.style.filter = "grayscale(100%)")
+                          }
+                        />
+                      </a>
+                    </td>
+                  )}
+                  {props.socialMedia.twitter && (
+                    <td style={{ padding: "0 8px" }}>
+                      <a
+                        href={props.socialMedia.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ textDecoration: "none" }}
+                      >
+                        <img
+                          src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
+                          alt="Twitter"
+                          width="24"
+                          height="24"
+                          style={{
+                            filter: "grayscale(100%)",
+                            transition: "filter 0.3s",
+                          }}
+                          onMouseOver={(e) =>
+                            (e.currentTarget.style.filter = "grayscale(0%)")
+                          }
+                          onMouseOut={(e) =>
+                            (e.currentTarget.style.filter = "grayscale(100%)")
+                          }
+                        />
+                      </a>
+                    </td>
+                  )}
+                </tr>
+              </tbody>
+            </table>
+          </td>
+
+          {/* Right Column */}
+          <td style={{ padding: "20px", verticalAlign: "top" }}>
+            {/* Name */}
+            <h2
+              style={{
+                fontSize: "20px",
+                fontWeight: "bold",
+                margin: "0 0 5px 0",
+                color: "#000",
+              }}
+            >
+              {props.name}
+            </h2>
+            {/* Title */}
+            <p
+              style={{
+                margin: "5px 0",
+                fontWeight: "600",
+                color: "#555",
+                fontSize: "16px",
+              }}
+            >
+              {props.title}
+            </p>
+            {/* Phone */}
+            <p
+              style={{
+                margin: "5px 0",
+                color: "#333",
+                fontSize: "14px",
+              }}
+            >
+              📞 {props.phone}
+            </p>
+            {/* Email */}
+            <p
+              style={{
+                margin: "5px 0",
+                color: "#333",
+                fontSize: "14px",
+              }}
+            >
+              📧{" "}
+              <a
+                href={`mailto:${props.email}`}
+                style={{
+                  color: "#0073e6",
+                  textDecoration: "none",
+                }}
+              >
+                {props.email}
+              </a>
+            </p>
+            {/* Location */}
+            <p
+              style={{
+                margin: "5px 0",
+                color: "#333",
+                fontSize: "14px",
+              }}
+            >
+              📍 {props.location}
+            </p>
+            {/* Website */}
+            <p
+              style={{
+                margin: "5px 0",
+                color: "#333",
+                fontSize: "14px",
+              }}
+            >
+              🌐{" "}
+              <a
+                href={props.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: "#0073e6",
+                  textDecoration: "none",
+                }}
+              >
+                {props.website}
+              </a>
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 

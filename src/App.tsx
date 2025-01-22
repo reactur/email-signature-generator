@@ -1,60 +1,74 @@
-import React, { useState, ChangeEvent } from "react";
-import { Copy, Check } from "lucide-react";
-import { signatures } from "./signatures";
-import "./App.css";
+import React, { useState, ChangeEvent } from "react"
+import {  Check, Upload, Loader2, Download } from 'lucide-react'
+import { signatures } from "./signatures"
+import type { FormData } from "./types/signatures"
 
-type FormData = {
-  name: string;
-  title: string;
-  company: string;
-  email: string;
-  phone: string;
-  website: string;
-  linkedin: string;
-  twitter: string;
-  location: string;
-  image: string;
-};
+const CLOUDINARY_UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET || ""
+const CLOUDINARY_CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || ""
 
 const App: React.FC = () => {
-  const [selectedSignature, setSelectedSignature] = useState<number>(0);
-  const [copied, setCopied] = useState<boolean>(false);
+
+  const [selectedSignature, setSelectedSignature] = useState<number>(0)
+  const [copied, setCopied] = useState<boolean>(false)
+  const [uploading, setUploading] = useState<boolean>(false)
   const [formData, setFormData] = useState<FormData>({
-    name: "Orion Vega",
-    title: "Interstellar Data Architect",
-    company: "Quantum Horizons Ltd.",
-    email: "orion.vega@gmail.com",
-    phone: "+1 (888) 999-8765",
-    website: "quantumhorizons.com",
-    linkedin: "linkedin.com/in/OrionVega",
-    twitter: "@datajourney",
-    location: "Alpha Centauri",
-    image: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  });
-  
-  
+    name: "James McGill",
+    title: "Criminal Lawyer",
+    company: "Saul Goodman & Associates",
+    email: "saulgoodman@gmail.com",
+    phone: "+1 (505) 503-4455",
+    website: "www.bettercallsaul.com",
+    linkedin: "linkedin.com/in/saulgoodman",
+    twitter: "@BetterCallSaul",
+    location: "Albuquerque, New Mexico",
+    image: "https://res-console.cloudinary.com/dkiow1fed/media_explorer_thumbnails/e7da1786929c17c67183673040cbcad7/detailed",
+  })
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
-  const handleImageUpload = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        const imageData = reader.result as string;
-        setFormData((prev) => ({ ...prev, image: imageData }));
-        localStorage.setItem("uploadedImage", imageData);
-      };
-      reader.readAsDataURL(file);
+  const handleImageUpload = async (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    if (!CLOUDINARY_UPLOAD_PRESET || !CLOUDINARY_CLOUD_NAME) {
+      console.error("Cloudinary configuration is missing")
+      return
     }
-  };
 
-  const copyToClipboard = async () => {
+    setUploading(true)
+
+    try {
+      const formData = new FormData()
+      formData.append("file", file)
+      formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET)
+
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      )
+
+      if (!response.ok) {
+        throw new Error(`Upload failed: ${response.statusText}`)
+      }
+
+      const data = await response.json()
+      setFormData((prev) => ({ ...prev, image: data.secure_url }))
+    } catch (error) {
+      console.error("Error uploading image:", error)
+    } finally {
+      setUploading(false)
+    }
+  }
+
+  const downloadHtmlFile = () => {
     const signatureElement = document.querySelector(".signature-preview");
     if (signatureElement) {
       try {
@@ -65,7 +79,15 @@ const App: React.FC = () => {
             <head>
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>Signature</title>
+              <title>Email Signature</title>
+              <style>
+                body {
+                  font-family: Arial, sans-serif;
+                  margin: 0;
+                  padding: 20px;
+                  background-color: #f5f5f5;
+                }
+              </style>
             </head>
             <body>
               ${signatureElement.outerHTML}
@@ -73,26 +95,37 @@ const App: React.FC = () => {
           </html>
         `;
 
-        await navigator.clipboard.writeText(htmlContent);
+        const blob = new Blob([htmlContent], { type: "text/html" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = `${formData.name}.html`;
+        link.click();
 
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       } catch (err) {
-        console.error("Failed to copy:", err);
+        console.error("Failed to generate file:", err);
       }
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200">
-      <div className="max-w-7xl mx-auto p-6">
-        <h1 className="text-3xl lg:text-4xl font-bold text-center mb-8 text-indigo-800">
-          Email Signature Generator
-        </h1>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {/* Form Section */}
-          <div className="bg-white shadow-md rounded-lg p-6">
-            <h2 className="text-2xl font-semibold text-gray-700 mb-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-200">
+      <div className="bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 py-8 sm:py-12">
+          <h1 className="text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600">
+            Email Signature Generator
+          </h1>
+          <p className="mt-4 text-center text-gray-600 max-w-2xl mx-auto">
+            Create a professional email signature in minutes. Choose from multiple styles and customize it to match your brand.
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+            <h2 className="text-xl font-semibold text-gray-800 mb-6">
               Your Information
             </h2>
             <div className="space-y-4">
@@ -100,18 +133,50 @@ const App: React.FC = () => {
                 <div key={key}>
                   <label
                     htmlFor={key}
-                    className="block text-sm font-medium text-gray-600 capitalize"
+                    className="block text-sm font-medium text-gray-700 capitalize mb-1"
                   >
                     {key.replace("_", " ")}
                   </label>
                   {key === "image" ? (
-                    <input
-                      id={key}
-                      type="file"
-                      accept="image/*"
-                      onChange={handleImageUpload}
-                      className="w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none"
-                    />
+                    <div className="relative">
+                      <input
+                        id={key}
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        className="hidden"
+                        disabled={uploading}
+                      />
+                      <label
+                        htmlFor={key}
+                        className={`flex items-center justify-center w-full px-4 py-2 border-2 border-dashed rounded-lg cursor-pointer
+                          ${uploading 
+                            ? 'bg-gray-50 border-gray-300' 
+                            : 'hover:bg-gray-50 border-gray-300 hover:border-purple-500'
+                          }`}
+                      >
+                        {uploading ? (
+                          <div className="flex items-center space-x-2">
+                            <Loader2 className="w-5 h-5 animate-spin text-gray-500" />
+                            <span className="text-gray-500">Uploading...</span>
+                          </div>
+                        ) : (
+                          <div className="flex items-center space-x-2">
+                            <Upload className="w-5 h-5 text-gray-500" />
+                            <span className="text-gray-500">Upload Image</span>
+                          </div>
+                        )}
+                      </label>
+                      {formData.image && (
+                        <div className="mt-2">
+                          <img
+                            src={formData.image || "/placeholder.svg"}
+                            alt="Preview"
+                            className="w-16 h-16 rounded-full object-cover"
+                          />
+                        </div>
+                      )}
+                    </div>
                   ) : (
                     <input
                       id={key}
@@ -119,7 +184,7 @@ const App: React.FC = () => {
                       name={key}
                       value={value}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                      className="w-full px-3 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none"
                     />
                   )}
                 </div>
@@ -127,24 +192,20 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          {/* Preview Section */}
           <div className="space-y-6">
-           
-
-            {/* Signature Selection */}
-            <div className="bg-white shadow-md rounded-lg p-6">
-              <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+              <h2 className="text-xl font-semibold text-gray-800 mb-4">
                 Choose Style
               </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {Array.from({ length: 12 }).map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setSelectedSignature(index)}
                     className={`p-4 rounded-lg border-2 transition-all ${
                       selectedSignature === index
-                        ? "border-indigo-600 bg-indigo-50"
-                        : "border-gray-200 hover:border-indigo-300"
+                        ? "border-purple-600 bg-purple-50 text-purple-700"
+                        : "border-gray-200 hover:border-purple-300 text-gray-600 hover:text-purple-600"
                     }`}
                   >
                     Style {index + 1}
@@ -152,20 +213,21 @@ const App: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-white shadow-md rounded-lg p-6">
+
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-semibold text-gray-700">
+                <h2 className="text-xl font-semibold text-gray-800">
                   Preview
                 </h2>
                 <button
-                  onClick={copyToClipboard}
-                  className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-all"
+                  onClick={downloadHtmlFile}
+                  className="flex items-center gap-2 px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-600 transition-all"
                 >
-                  {copied ? <Check size={20} /> : <Copy size={20} />}
-                  {copied ? "Copied!" : "Copy HTML"}
+                  {copied ? <Check size={20} /> : <Download size={20} />}
+                  {copied ? "Downloaded!" : "Download HTML"}
                 </button>
               </div>
-              <div className="signature-preview">
+              <div className="signature-preview border rounded-lg p-4">
                 {signatures[selectedSignature]({ ...formData })}
               </div>
             </div>
@@ -173,7 +235,7 @@ const App: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
