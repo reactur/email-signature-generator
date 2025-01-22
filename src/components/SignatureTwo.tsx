@@ -1,139 +1,155 @@
 import { Mail, Phone, Globe, Linkedin, Twitter, MapPin } from "lucide-react";
 
 interface SignatureProps {
-    name: string;
-    title: string;
-    company: string;
-    email: string;
-    phone: string;
-    website: string;
-    linkedin: string;
-    twitter: string;
-    location: string;
-  }
-
-const SignatureTwo = (props:SignatureProps) => {
-  return (
-    <div
-    style={{
-      fontFamily: "Arial, sans-serif",
-      padding: "16px",
-      borderLeft: "4px solid #4F46E5",
-      backgroundColor: "#f9f9f9",
-      borderRadius: "8px",
-      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-      animation: "fade-in 0.5s ease-in-out",
-    }}
-  >
-    <h3
-      style={{
-        fontSize: "1.5rem",
-        fontWeight: "bold",
-        color: "#333",
-        marginBottom: "4px",
-      }}
-    >
-      {props.name}
-    </h3>
-    <p style={{ color: "#555", margin: "4px 0 8px 0" }}>
-      {props.title} at {props.company}
-    </p>
-
-    <div style={{ marginTop: "8px", fontSize: "0.875rem", color: "#555" }}>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          marginBottom: "8px",
-          gap: "8px",
-        }}
-      >
-        <Mail size={16} style={{ color: "#4F46E5" }} />
-        <span>{props.email}</span>
-      </div>
-
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          marginBottom: "8px",
-          gap: "8px",
-        }}
-      >
-        <Phone size={16} style={{ color: "#4F46E5" }} />
-        <span>{props.phone}</span>
-      </div>
-
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          marginBottom: "8px",
-          gap: "8px",
-        }}
-      >
-        <Globe size={16} style={{ color: "#4F46E5" }} />
-        <span>
-          <a
-            href={props.website ? `https://${props.website}` : "#"}
-            style={{ color: "#4F46E5", textDecoration: "none" }}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {props.website}
-          </a>
-        </span>
-      </div>
-
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          marginBottom: "8px",
-          gap: "8px",
-        }}
-      >
-        <MapPin size={16} style={{ color: "#4F46E5" }} />
-        <span>{props.location}</span>
-      </div>
-
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          marginBottom: "8px",
-          gap: "8px",
-        }}
-      >
-        <Linkedin size={16} style={{ color: "#0077B5" }} />
-        <span>
-          <a
-            href={props.linkedin ? `https://${props.linkedin}` : "#"}
-            style={{ color: "#0077B5", textDecoration: "none" }}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {props.linkedin}
-          </a>
-        </span>
-      </div>
-
-      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-        <Twitter size={16} style={{ color: "#1DA1F2" }} />
-        <span>
-          <a
-            href={`https://twitter.com/${props.twitter.replace("@", "")}`}
-            style={{ color: "#1DA1F2", textDecoration: "none" }}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {props.twitter}
-          </a>
-        </span>
-      </div>
-    </div>
-  </div>
-  )
+  name: string;
+  title: string;
+  company: string;
+  email: string;
+  phone: string;
+  website: string;
+  linkedin: string;
+  twitter: string;
+  location: string;
 }
 
-export default SignatureTwo
+const SignatureTwo = (props: SignatureProps) => {
+  return (
+    <table
+      cellPadding="0"
+      cellSpacing="0"
+      width="100%"
+      style={{
+        fontFamily: "Arial, sans-serif",
+        fontSize: "14px",
+        lineHeight: "1.5",
+        color: "#333",
+      }}
+    >
+      <tbody>
+        <tr>
+          <td
+            style={{
+              borderLeft: "4px solid #4F46E5",
+              padding: "16px",
+              backgroundColor: "#f9f9f9",
+            }}
+          >
+            <table cellPadding="0" cellSpacing="0" style={{ width: "100%" }}>
+              <tbody>
+                <tr>
+                  <td>
+                    <h3
+                      style={{
+                        fontSize: "18px",
+                        fontWeight: "bold",
+                        color: "#333",
+                        margin: "0 0 4px 0",
+                      }}
+                    >
+                      {props.name}
+                    </h3>
+                    <p style={{ margin: "0 0 8px 0", color: "#555" }}>
+                      {props.title} at {props.company}
+                    </p>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <table
+                      cellPadding="0"
+                      cellSpacing="0"
+                      style={{ width: "100%", marginTop: "8px" }}
+                    >
+                      <tbody>
+                        <tr>
+                          <td width="20">
+                            <Mail size={16} style={{ color: "#4F46E5" }} />
+                          </td>
+                          <td>{props.email}</td>
+                        </tr>
+                        <tr>
+                          <td width="20">
+                            <Phone size={16} style={{ color: "#4F46E5" }} />
+                          </td>
+                          <td>{props.phone}</td>
+                        </tr>
+                        <tr>
+                          <td width="20">
+                            <Globe size={16} style={{ color: "#4F46E5" }} />
+                          </td>
+                          <td>
+                            <a
+                              href={props.website ? `https://${props.website}` : "#"}
+                              style={{
+                                color: "#4F46E5",
+                                textDecoration: "none",
+                              }}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {props.website}
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td width="20">
+                            <MapPin size={16} style={{ color: "#4F46E5" }} />
+                          </td>
+                          <td>{props.location}</td>
+                        </tr>
+                        <tr>
+                          <td width="20">
+                            <Linkedin size={16} style={{ color: "#0077B5" }} />
+                          </td>
+                          <td>
+                            <a
+                              href={
+                                props.linkedin ? `https://${props.linkedin}` : "#"
+                              }
+                              style={{
+                                color: "#0077B5",
+                                textDecoration: "none",
+                              }}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {props.linkedin}
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td width="20">
+                            <Twitter size={16} style={{ color: "#1DA1F2" }} />
+                          </td>
+                          <td>
+                            <a
+                              href={`https://twitter.com/${props.twitter.replace(
+                                "@",
+                                ""
+                              )}`}
+                              style={{
+                                color: "#1DA1F2",
+                                textDecoration: "none",
+                              }}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {props.twitter}
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+export default SignatureTwo;

@@ -26,7 +26,7 @@ interface SignatureProps {
 
 export const signatures: ((props: SignatureProps) => JSX.Element)[] = [
   (props) => (
-    <SignatureTwelve
+    <SignatureOne
       {...props}
       socialMedia={{
         facebook: "https://facebook.com/",
@@ -37,7 +37,6 @@ export const signatures: ((props: SignatureProps) => JSX.Element)[] = [
       }}
     />
   ),
-  (props) => <SignatureOne {...props} />,
   (props) => <SignatureTwo {...props} />,
   (props) => <SignatureThree {...props} />,
   (props) => <SignatureFour {...props} />,
@@ -63,4 +62,5 @@ export const signatures: ((props: SignatureProps) => JSX.Element)[] = [
       }}
     />
   ),
+  (props) => <SignatureTwelve {...props} />,
 ];
