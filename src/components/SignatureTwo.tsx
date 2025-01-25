@@ -1,142 +1,298 @@
-import { Mail, Phone, Globe, Linkedin, Twitter, MapPin } from "lucide-react";
+import { Mail, Phone, Globe, Linkedin, Twitter, MapPin } from "lucide-react"
 
 interface SignatureProps {
-  name: string;
-  title: string;
-  company: string;
-  email: string;
-  phone: string;
-  website: string;
-  linkedin: string;
-  twitter: string;
-  location: string;
+  name: string
+  title: string
+  company: string
+  email: string
+  phone: string
+  website: string
+  linkedin: string
+  twitter: string
+  location: string
+  image?: string
 }
 
 const SignatureTwo = (props: SignatureProps) => {
+  const getIconAsBase64 = (icon: JSX.Element) => {
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icon.props.children}</svg>`
+    return `data:image/svg+xml;base64,${btoa(svg)}`
+  }
+
   return (
     <table
       cellPadding="0"
       cellSpacing="0"
-      width="100%"
       style={{
-        fontFamily: "Arial, sans-serif",
-        fontSize: "14px",
-        lineHeight: "1.5",
-        color: "#333",
+        width: "100%",
+        maxWidth: "600px",
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+        borderCollapse: "collapse",
+        backgroundColor: "#ffffff",
       }}
     >
       <tbody>
         <tr>
-          <td
-            style={{
-              borderLeft: "4px solid #4F46E5",
-              padding: "16px",
-              backgroundColor: "#f9f9f9",
-            }}
-          >
-            <table cellPadding="0" cellSpacing="0" style={{ width: "100%" }}>
+          <td style={{ padding: "24px", background: "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)" }}>
+            <table cellPadding="0" cellSpacing="0" style={{ width: "100%", borderCollapse: "collapse" }}>
               <tbody>
                 <tr>
-                  <td>
-                    <h3
-                      style={{
-                        fontSize: "18px",
-                        fontWeight: "bold",
-                        color: "#333",
-                        margin: "0 0 4px 0",
-                      }}
-                    >
-                      {props.name}
-                    </h3>
-                    <p style={{ margin: "0 0 8px 0", color: "#555" }}>
-                      {props.title} at {props.company}
-                    </p>
+                  {/* Profile Image Column */}
+                  <td style={{ verticalAlign: "top", width: "120px", paddingRight: "24px" }}>
+                    {props.image && (
+                      <div
+                        style={{
+                          width: "120px",
+                          height: "120px",
+                          borderRadius: "12px",
+                          overflow: "hidden",
+                          boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                        }}
+                      >
+                        <img
+                          src={props.image}
+                          alt={props.name}
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                          }}
+                        />
+                      </div>
+                    )}
                   </td>
-                </tr>
 
-                <tr>
-                  <td>
-                    <table
-                      cellPadding="0"
-                      cellSpacing="0"
-                      style={{ width: "100%", marginTop: "8px" }}
-                    >
+                  {/* Content Column */}
+                  <td style={{ verticalAlign: "top" }}>
+                    <table cellPadding="0" cellSpacing="0" style={{ width: "100%", borderCollapse: "collapse" }}>
                       <tbody>
+                        {/* Name and Title Section */}
                         <tr>
-                          <td width="20">
-                            <Mail size={16} style={{ color: "#4F46E5" }} />
-                          </td>
-                          <td>{props.email}</td>
-                        </tr>
-                        <tr>
-                          <td width="20">
-                            <Phone size={16} style={{ color: "#4F46E5" }} />
-                          </td>
-                          <td>{props.phone}</td>
-                        </tr>
-                        <tr>
-                          <td width="20">
-                            <Globe size={16} style={{ color: "#4F46E5" }} />
-                          </td>
-                          <td>
-                            <a
-                              href={props.website ? `https://${props.website}` : "#"}
+                          <td style={{ paddingBottom: "16px" }}>
+                            <h2
                               style={{
-                                color: "#4F46E5",
-                                textDecoration: "none",
+                                margin: "0 0 4px 0",
+                                fontSize: "24px",
+                                fontWeight: "bold",
+                                color: "#0f172a",
+                                letterSpacing: "-0.025em",
                               }}
-                              target="_blank"
-                              rel="noopener noreferrer"
                             >
-                              {props.website}
-                            </a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td width="20">
-                            <MapPin size={16} style={{ color: "#4F46E5" }} />
-                          </td>
-                          <td>{props.location}</td>
-                        </tr>
-                        <tr>
-                          <td width="20">
-                            <Linkedin size={16} style={{ color: "#0077B5" }} />
-                          </td>
-                          <td>
-                            <a
-                              href={
-                                props.linkedin ? `https://${props.linkedin}` : "#"
-                              }
+                              {props.name}
+                            </h2>
+                            <p
                               style={{
-                                color: "#0077B5",
-                                textDecoration: "none",
+                                margin: "0 0 8px 0",
+                                fontSize: "16px",
+                                color: "#475569",
+                                fontWeight: "500",
                               }}
-                              target="_blank"
-                              rel="noopener noreferrer"
                             >
-                              {props.linkedin}
-                            </a>
+                              {props.title}
+                            </p>
+                            <p
+                              style={{
+                                margin: "0",
+                                fontSize: "15px",
+                                color: "#64748b",
+                              }}
+                            >
+                              {props.company}
+                            </p>
                           </td>
                         </tr>
+
+                        {/* Separator */}
                         <tr>
-                          <td width="20">
-                            <Twitter size={16} style={{ color: "#1DA1F2" }} />
-                          </td>
-                          <td>
-                            <a
-                              href={`https://twitter.com/${props.twitter.replace(
-                                "@",
-                                ""
-                              )}`}
+                          <td style={{ paddingBottom: "16px" }}>
+                            <div
                               style={{
-                                color: "#1DA1F2",
-                                textDecoration: "none",
+                                height: "2px",
+                                background: "linear-gradient(90deg, #6366f1 0%, #818cf8 100%)",
+                                width: "48px",
                               }}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              {props.twitter}
-                            </a>
+                            ></div>
+                          </td>
+                        </tr>
+
+                        {/* Contact Information */}
+                        <tr>
+                          <td>
+                            <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse" }}>
+                              <tbody>
+                                <tr>
+                                  <td style={{ paddingBottom: "12px" }}>
+                                    <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse" }}>
+                                      <tbody>
+                                        <tr>
+                                          <td style={{ paddingRight: "24px", whiteSpace: "nowrap" }}>
+                                            <a
+                                              href={`mailto:${props.email}`}
+                                              style={{
+                                                color: "#475569",
+                                                textDecoration: "none",
+                                                fontSize: "14px",
+                                                display: "flex",
+                                                alignItems: "center",
+                                              }}
+                                            >
+                                              <img
+                                                src={getIconAsBase64(<Mail />) || "/placeholder.svg"}
+                                                alt=""
+                                                style={{
+                                                  width: "16px",
+                                                  height: "16px",
+                                                  marginRight: "8px",
+                                                  color: "#6366f1",
+                                                }}
+                                              />
+                                              {props.email}
+                                            </a>
+                                          </td>
+                                          <td style={{ whiteSpace: "nowrap" }}>
+                                            <a
+                                              href={`tel:${props.phone}`}
+                                              style={{
+                                                color: "#475569",
+                                                textDecoration: "none",
+                                                fontSize: "14px",
+                                                display: "flex",
+                                                alignItems: "center",
+                                              }}
+                                            >
+                                              <img
+                                                src={getIconAsBase64(<Phone />) || "/placeholder.svg"}
+                                                alt=""
+                                                style={{
+                                                  width: "16px",
+                                                  height: "16px",
+                                                  marginRight: "8px",
+                                                  color: "#6366f1",
+                                                }}
+                                              />
+                                              {props.phone}
+                                            </a>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td style={{ paddingBottom: "12px" }}>
+                                    <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse" }}>
+                                      <tbody>
+                                        <tr>
+                                          <td style={{ paddingRight: "24px", whiteSpace: "nowrap" }}>
+                                            <a
+                                              href={`https://${props.website}`}
+                                              style={{
+                                                color: "#475569",
+                                                textDecoration: "none",
+                                                fontSize: "14px",
+                                                display: "flex",
+                                                alignItems: "center",
+                                              }}
+                                            >
+                                              <img
+                                                src={getIconAsBase64(<Globe />) || "/placeholder.svg"}
+                                                alt=""
+                                                style={{
+                                                  width: "16px",
+                                                  height: "16px",
+                                                  marginRight: "8px",
+                                                  color: "#6366f1",
+                                                }}
+                                              />
+                                              {props.website}
+                                            </a>
+                                          </td>
+                                          <td style={{ whiteSpace: "nowrap" }}>
+                                            <span
+                                              style={{
+                                                color: "#475569",
+                                                fontSize: "14px",
+                                                display: "flex",
+                                                alignItems: "center",
+                                              }}
+                                            >
+                                              <img
+                                                src={getIconAsBase64(<MapPin />) || "/placeholder.svg"}
+                                                alt=""
+                                                style={{
+                                                  width: "16px",
+                                                  height: "16px",
+                                                  marginRight: "8px",
+                                                  color: "#6366f1",
+                                                }}
+                                              />
+                                              {props.location}
+                                            </span>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+
+                                {/* Social Links */}
+                                <tr>
+                                  <td style={{ paddingTop: "8px" }}>
+                                    <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse" }}>
+                                      <tbody>
+                                        <tr>
+                                          <td style={{ paddingRight: "12px" }}>
+                                            <a
+                                              href={`https://${props.linkedin}`}
+                                              style={{
+                                                display: "inline-block",
+                                                padding: "8px",
+                                                backgroundColor: "#f8fafc",
+                                                borderRadius: "8px",
+                                                lineHeight: 0,
+                                              }}
+                                            >
+                                              <img
+                                                src={getIconAsBase64(<Linkedin />) || "/placeholder.svg"}
+                                                alt="LinkedIn"
+                                                style={{
+                                                  width: "16px",
+                                                  height: "16px",
+                                                  color: "#0077b5",
+                                                }}
+                                              />
+                                            </a>
+                                          </td>
+                                          <td>
+                                            <a
+                                              href={`https://twitter.com/${props.twitter.replace("@", "")}`}
+                                              style={{
+                                                display: "inline-block",
+                                                padding: "8px",
+                                                backgroundColor: "#f8fafc",
+                                                borderRadius: "8px",
+                                                lineHeight: 0,
+                                              }}
+                                            >
+                                              <img
+                                                src={getIconAsBase64(<Twitter />) || "/placeholder.svg"}
+                                                alt="Twitter"
+                                                style={{
+                                                  width: "16px",
+                                                  height: "16px",
+                                                  color: "#1da1f2",
+                                                }}
+                                              />
+                                            </a>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
                           </td>
                         </tr>
                       </tbody>
@@ -149,7 +305,8 @@ const SignatureTwo = (props: SignatureProps) => {
         </tr>
       </tbody>
     </table>
-  );
-};
+  )
+}
 
-export default SignatureTwo;
+export default SignatureTwo
+

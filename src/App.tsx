@@ -3,8 +3,10 @@ import {  Check, Upload, Loader2, Download } from 'lucide-react'
 import { signatures } from "./signatures"
 import type { FormData } from "./types/signatures"
 
-const CLOUDINARY_UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET || ""
-const CLOUDINARY_CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || ""
+
+//keeping it because its not paid
+const CLOUDINARY_UPLOAD_PRESET = "upload_preset" || ""
+const CLOUDINARY_CLOUD_NAME = "dkiow1fed" || ""
 
 const App: React.FC = () => {
 
@@ -21,7 +23,7 @@ const App: React.FC = () => {
     linkedin: "linkedin.com/in/saulgoodman",
     twitter: "@BetterCallSaul",
     location: "Albuquerque, New Mexico",
-    image: "https://res-console.cloudinary.com/dkiow1fed/media_explorer_thumbnails/e7da1786929c17c67183673040cbcad7/detailed",
+    image: "https://res.cloudinary.com/dkiow1fed/image/upload/v1737818956/Jimmy_McGill_c6ytb1.webp",
   })
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -227,7 +229,7 @@ const App: React.FC = () => {
                   {copied ? "Downloaded!" : "Download HTML"}
                 </button>
               </div>
-              <div className="signature-preview border rounded-lg p-4">
+              <div className="signature-preview rounded-lg">
                 {signatures[selectedSignature]({ ...formData })}
               </div>
             </div>
