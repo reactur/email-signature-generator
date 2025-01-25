@@ -3,8 +3,10 @@ import {  Check, Upload, Loader2, Download } from 'lucide-react'
 import { signatures } from "./signatures"
 import type { FormData } from "./types/signatures"
 
-const CLOUDINARY_UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET || ""
-const CLOUDINARY_CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || ""
+
+//keeping it because its not paid
+const CLOUDINARY_UPLOAD_PRESET = "upload_preset" || ""
+const CLOUDINARY_CLOUD_NAME = "dkiow1fed" || ""
 
 const App: React.FC = () => {
 
