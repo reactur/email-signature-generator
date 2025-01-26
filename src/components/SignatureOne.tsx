@@ -1,250 +1,209 @@
-import React from "react";
-
 interface SignatureProps {
-  name: string;
-  title: string;
-  phone: string;
-  email: string;
-  location: string;
-  website: string;
-  image: string;
+  name: string
+  title: string
+  company: string
+  email: string
+  phone: string
+  website: string
+  location: string
+  image: string
   socialMedia: {
-    facebook?: string;
-    linkedin?: string;
-    instagram?: string;
-    twitter?: string;
-    youtube?: string;
-  };
+    [key: string]: {
+      url: string
+      icon: string
+      name: string
+    }
+  }
 }
 
 const SignatureOne = (props: SignatureProps) => {
+  const contactInfo = [
+    { icon: "📧", value: props.email, href: `mailto:${props.email}`, isLink: true },
+    { icon: "📞", value: props.phone, href: `tel:${props.phone}`, isLink: true },
+    { icon: "🌐", value: props.website, href: `https://${props.website}`, isLink: true },
+    { icon: "📍", value: props.location, href: "", isLink: false },
+  ]
+
   return (
     <table
       cellPadding="0"
       cellSpacing="0"
       style={{
-        fontFamily: "Arial, sans-serif",
-        color: "#000",
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif',
         maxWidth: "600px",
         width: "100%",
-        border: "1px solid #e0e0e0",
-        borderRadius: "10px",
-        background:
-          "linear-gradient(135deg, #ffffff 50%, #f5f5f5 100%)",
-        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+        borderCollapse: "collapse",
+        backgroundColor: "#ffffff",
+        borderRadius: "8px",
+        overflow: "hidden",
+        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
       }}
     >
       <tbody>
         <tr>
-          {/* Left Column */}
+          {/* Profile Column */}
           <td
             style={{
-              padding: "20px",
-              textAlign: "center",
+              width: "140px",
+              padding: "24px",
+              backgroundColor: "#f8fafc",
+              borderRight: "1px solid #e2e8f0",
               verticalAlign: "top",
-              borderRight: "2px solid #0077b5",
             }}
           >
-            {/* Profile Image */}
-            {props.image && (
-              <img
-                src={props.image}
-                alt={`${props.name}'s profile`}
-                style={{
-                  width: "120px",
-                  height: "120px",
-                  objectFit: "cover",
-                  borderRadius: "50%",
-                  border: "3px solid #ddd",
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                  marginBottom: "15px",
-                }}
-              />
-            )}
+            <img
+              src={props.image || "/placeholder.svg"}
+              alt={props.name}
+              style={{
+                width: "120px",
+                height: "120px",
+                borderRadius: "60px",
+                border: "3px solid #fff",
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+                marginBottom: "16px",
+              }}
+            />
 
             {/* Social Media Icons */}
             <table
               cellPadding="0"
               cellSpacing="0"
-              style={{ margin: "0 auto" }}
+              style={{
+                margin: "0 auto",
+              }}
             >
               <tbody>
                 <tr>
-                  {props.socialMedia.facebook && (
-                    <td style={{ padding: "0 8px" }}>
+                  {Object.entries(props.socialMedia).map(([key, social], index) => (
+                    <td
+                      key={key}
+                      style={{
+                        padding: index !== 0 ? "0 0 0 8px" : "0",
+                      }}
+                    >
                       <a
-                        href={props.socialMedia.facebook}
+                        href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        style={{ textDecoration: "none" }}
+                        style={{
+                          display: "inline-block",
+                          lineHeight: "0",
+                        }}
                       >
                         <img
-                          src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
-                          alt="Facebook"
+                          src={social.icon || "/placeholder.svg"}
+                          alt={social.name}
                           width="24"
                           height="24"
                           style={{
                             filter: "grayscale(100%)",
                             transition: "filter 0.3s",
+                            opacity: "0.8",
                           }}
-                          onMouseOver={(e) =>
-                            (e.currentTarget.style.filter = "grayscale(0%)")
-                          }
-                          onMouseOut={(e) =>
-                            (e.currentTarget.style.filter = "grayscale(100%)")
-                          }
+                          onMouseOver={(e) => {
+                            e.currentTarget.style.filter = "grayscale(0%)"
+                            e.currentTarget.style.opacity = "1"
+                          }}
+                          onMouseOut={(e) => {
+                            e.currentTarget.style.filter = "grayscale(100%)"
+                            e.currentTarget.style.opacity = "0.8"
+                          }}
                         />
                       </a>
                     </td>
-                  )}
-                  {props.socialMedia.linkedin && (
-                    <td style={{ padding: "0 8px" }}>
-                      <a
-                        href={props.socialMedia.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ textDecoration: "none" }}
-                      >
-                        <img
-                          src="https://cdn-icons-png.flaticon.com/512/733/733561.png"
-                          alt="LinkedIn"
-                          width="24"
-                          height="24"
-                          style={{
-                            filter: "grayscale(100%)",
-                            transition: "filter 0.3s",
-                          }}
-                          onMouseOver={(e) =>
-                            (e.currentTarget.style.filter = "grayscale(0%)")
-                          }
-                          onMouseOut={(e) =>
-                            (e.currentTarget.style.filter = "grayscale(100%)")
-                          }
-                        />
-                      </a>
-                    </td>
-                  )}
-                  {props.socialMedia.twitter && (
-                    <td style={{ padding: "0 8px" }}>
-                      <a
-                        href={props.socialMedia.twitter}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ textDecoration: "none" }}
-                      >
-                        <img
-                          src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
-                          alt="Twitter"
-                          width="24"
-                          height="24"
-                          style={{
-                            filter: "grayscale(100%)",
-                            transition: "filter 0.3s",
-                          }}
-                          onMouseOver={(e) =>
-                            (e.currentTarget.style.filter = "grayscale(0%)")
-                          }
-                          onMouseOut={(e) =>
-                            (e.currentTarget.style.filter = "grayscale(100%)")
-                          }
-                        />
-                      </a>
-                    </td>
-                  )}
+                  ))}
                 </tr>
               </tbody>
             </table>
           </td>
 
-          {/* Right Column */}
-          <td style={{ padding: "20px", verticalAlign: "top" }}>
-            {/* Name */}
-            <h2
-              style={{
-                fontSize: "20px",
-                fontWeight: "bold",
-                margin: "0 0 5px 0",
-                color: "#000",
-              }}
-            >
-              {props.name}
-            </h2>
-            {/* Title */}
-            <p
-              style={{
-                margin: "5px 0",
-                fontWeight: "600",
-                color: "#555",
-                fontSize: "16px",
-              }}
-            >
-              {props.title}
-            </p>
-            {/* Phone */}
-            <p
-              style={{
-                margin: "5px 0",
-                color: "#333",
-                fontSize: "14px",
-              }}
-            >
-              📞 {props.phone}
-            </p>
-            {/* Email */}
-            <p
-              style={{
-                margin: "5px 0",
-                color: "#333",
-                fontSize: "14px",
-              }}
-            >
-              📧{" "}
-              <a
-                href={`mailto:${props.email}`}
-                style={{
-                  color: "#0073e6",
-                  textDecoration: "none",
-                }}
-              >
-                {props.email}
-              </a>
-            </p>
-            {/* Location */}
-            <p
-              style={{
-                margin: "5px 0",
-                color: "#333",
-                fontSize: "14px",
-              }}
-            >
-              📍 {props.location}
-            </p>
-            {/* Website */}
-            <p
-              style={{
-                margin: "5px 0",
-                color: "#333",
-                fontSize: "14px",
-              }}
-            >
-              🌐{" "}
-              <a
-                href={props.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  color: "#0073e6",
-                  textDecoration: "none",
-                }}
-              >
-                {props.website}
-              </a>
-            </p>
+          <td style={{ padding: "24px", verticalAlign: "top" }}>
+            <table cellPadding="0" cellSpacing="0">
+              <tbody>
+             
+                <tr>
+                  <td style={{ paddingBottom: "4px" }}>
+                    <h2
+                      style={{
+                        margin: "0",
+                        fontSize: "20px",
+                        fontWeight: "600",
+                        color: "#1a202c",
+                        letterSpacing: "-0.01em",
+                      }}
+                    >
+                      {props.name}
+                    </h2>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style={{ paddingBottom: "16px" }}>
+                    <p
+                      style={{
+                        margin: "0",
+                        fontSize: "15px",
+                        color: "#4a5568",
+                        fontWeight: "500",
+                      }}
+                    >
+                      {props.title} • {props.company}
+                    </p>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style={{ paddingBottom: "16px" }}>
+                    <div
+                      style={{
+                        height: "1px",
+                        width: "32px",
+                        backgroundColor: "#e2e8f0",
+                      }}
+                    />
+                  </td>
+                </tr>
+
+                {contactInfo.map((info, index) => (
+                  <tr key={index}>
+                    <td style={{ paddingBottom: "8px" }}>
+                      <p
+                        style={{
+                          margin: "0",
+                          fontSize: "14px",
+                          color: "#4a5568",
+                          lineHeight: "1.5",
+                        }}
+                      >
+                        <span style={{ marginRight: "8px" }}>{info.icon}</span>
+                        {info.isLink ? (
+                          <a
+                            href={info.href}
+                            style={{
+                              color: "#2d3748",
+                              textDecoration: "none",
+                              borderBottom: "1px dotted #cbd5e0",
+                            }}
+                            target={info.href.startsWith("http") ? "_blank" : undefined}
+                            rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                          >
+                            {info.value}
+                          </a>
+                        ) : (
+                          <span style={{ color: "#2d3748" }}>{info.value}</span>
+                        )}
+                      </p>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </td>
         </tr>
       </tbody>
     </table>
-  );
-};
+  )
+}
 
-export default SignatureOne;
+export default SignatureOne
+
