@@ -8,7 +8,7 @@ export type FormData = {
     linkedin: string
     twitter: string
     location: string
-    image: string
+    image: string 
   }
   
   export type SignatureProps = {
