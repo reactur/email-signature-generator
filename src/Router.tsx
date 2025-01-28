@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import SocialMediaIcons from "./SocialMediaIcons"; 
 import SvgToPngConverter from "./SvgtoPngConverter";
+import ImageGallery from "./ImageGallery";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/svg-to-png",
     element: <SvgToPngConverter />,
+  },
+  {
+    path: "/cld",
+    element: <ImageGallery />,
   },
 ]);
 

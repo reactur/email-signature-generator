@@ -19,12 +19,18 @@ const App: React.FC = () => {
     company: "Saul Goodman & Associates",
     email: "saulgoodman@gmail.com",
     phone: "+1 (505) 503-4455",
-    website: "www.bettercallsaul.com",
-    linkedin: "linkedin.com/in/saulgoodman",
-    twitter: "@BetterCallSaul",
+    website: "https://www.bettercallsaul.com",
+    linkedin: "https://www.linkedin.com/in/saulgoodman",
+    twitter: "https://twitter.com/BetterCallSaul",
+    facebook: "https://www.facebook.com/BetterCallSaul",
+    instagram: "https://www.instagram.com/BetterCallSaul",
+    youtube: "https://www.youtube.com/BetterCallSaul",
+    tiktok: "https://www.tiktok.com/@BetterCallSaul",
+    github: "https://github.com/BetterCallSaul",
     location: "Albuquerque, New Mexico",
     image: "https://res.cloudinary.com/dkiow1fed/image/upload/v1737818956/Jimmy_McGill_c6ytb1.webp",
-  })
+  });
+  
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -200,7 +206,7 @@ const App: React.FC = () => {
                 Choose Style
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {Array.from({ length: 12 }).map((_, index) => (
+                {Array.from({ length: 13 }).map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setSelectedSignature(index)}

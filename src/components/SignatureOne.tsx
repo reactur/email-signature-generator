@@ -1,20 +1,4 @@
-interface SignatureProps {
-  name: string
-  title: string
-  company: string
-  email: string
-  phone: string
-  website: string
-  location: string
-  image: string
-  socialMedia: {
-    [key: string]: {
-      url: string
-      icon: string
-      name: string
-    }
-  }
-}
+import {SignatureProps} from "../types/signatures"
 
 const SignatureOne = (props: SignatureProps) => {
   const contactInfo = [
@@ -74,8 +58,8 @@ const SignatureOne = (props: SignatureProps) => {
             >
               <tbody>
                 <tr>
-                  {Object.entries(props.socialMedia).map(([key, social], index) => (
-                    <td
+                  {props.socialMedia && Object.entries(props.socialMedia).map(([key, social], index) => (
+                    social.url ? ( <td
                       key={key}
                       style={{
                         padding: index !== 0 ? "0 0 0 8px" : "0",
@@ -91,7 +75,7 @@ const SignatureOne = (props: SignatureProps) => {
                         }}
                       >
                         <img
-                          src={social.icon || "/placeholder.svg"}
+                          src={social.icon}
                           alt={social.name}
                           width="24"
                           height="24"
@@ -110,7 +94,8 @@ const SignatureOne = (props: SignatureProps) => {
                           }}
                         />
                       </a>
-                    </td>
+                    </td>):null
+                   
                   ))}
                 </tr>
               </tbody>

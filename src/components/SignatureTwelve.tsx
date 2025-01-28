@@ -1,19 +1,6 @@
 import React from "react";
 import { Mail, Phone, Globe, Linkedin, Twitter, MapPin } from "lucide-react";
-
-
-interface SignatureProps {
-  name: string;
-  title: string;
-  company: string;
-  email: string;
-  phone: string;
-  website: string;
-  linkedin: string;
-  twitter: string;
-  location: string;
-  image: string;
-}
+import {SignatureProps} from "../types/signatures"
 
 const SignatureTwelve: React.FC<SignatureProps> = (props) => {
 
