@@ -3,6 +3,7 @@ import App from "./App";
 import SocialMediaIcons from "./SocialMediaIcons"; 
 import SvgToPngConverter from "./SvgtoPngConverter";
 import ImageGallery from "./ImageGallery";
+import HtmlToPngConverter from "./HtmlToPngConverter";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/svg-to-png",
     element: <SvgToPngConverter />,
+  },
+  {
+    path: "/html-to-png",
+    element: <HtmlToPngConverter />,
   },
   {
     path: "/cld",
