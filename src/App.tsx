@@ -5,8 +5,8 @@ import type { FormData } from "./types/signatures"
 
 
 //keeping it because its not paid
-const CLOUDINARY_UPLOAD_PRESET = "upload_preset" || ""
-const CLOUDINARY_CLOUD_NAME = "dkiow1fed" || ""
+const CLOUDINARY_UPLOAD_PRESET = "upload_preset"
+const CLOUDINARY_CLOUD_NAME = "dkiow1fed"
 
 const App: React.FC = () => {
 
