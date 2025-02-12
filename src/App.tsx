@@ -28,7 +28,7 @@ const App: React.FC = () => {
     tiktok: "https://www.tiktok.com/@BetterCallSaul",
     github: "https://github.com/BetterCallSaul",
     location: "Albuquerque, New Mexico",
-    image: "https://res.cloudinary.com/dkiow1fed/image/upload/v1737818956/Jimmy_McGill_c6ytb1.webp",
+    image: "https://res.cloudinary.com/dkiow1fed/image/upload/c_crop,g_auto,h_1200,w_1200/v1737818956/Jimmy_McGill_c6ytb1.webp",
   });
   
 
