@@ -2,7 +2,8 @@ import React, { useState, ChangeEvent } from "react"
 import {  Check, Upload, Loader2, Download } from 'lucide-react'
 import { signatures } from "./signatures"
 import type { FormData } from "./types/signatures"
-import Features from "./components/features"
+import Features from "./components/Features"
+import Hero from "./components/Interface/Hero"
 
 
 //keeping it because its not paid
@@ -121,14 +122,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-200">
       <div className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 py-8 sm:py-12">
-          <h1 className="text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600">
-            Email Signature Generator
-          </h1>
-          <p className="mt-4 text-center text-gray-600 max-w-2xl mx-auto">
-            Create a professional email signature in minutes. Choose from multiple styles and customize it to match your brand.
-          </p>
-        </div>
+        <Hero />
       </div>
 <Features />
       <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
@@ -201,7 +195,7 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6" id="styles">
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
               <h2 className="text-xl font-semibold text-gray-800 mb-4">
                 Choose Style
