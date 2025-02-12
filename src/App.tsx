@@ -2,6 +2,7 @@ import React, { useState, ChangeEvent } from "react"
 import {  Check, Upload, Loader2, Download } from 'lucide-react'
 import { signatures } from "./signatures"
 import type { FormData } from "./types/signatures"
+import Features from "./components/features"
 
 
 //keeping it because its not paid
@@ -129,7 +130,7 @@ const App: React.FC = () => {
           </p>
         </div>
       </div>
-
+<Features />
       <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
