@@ -1,42 +1,53 @@
-import SignatureOne from "./components/SignatureOne";
-import SignatureTwo from "./components/SignatureTwo";
-import SignatureThree from "./components/SignatureThree";
-import SignatureFour from "./components/SignatureFour";
-import SignatureFive from "./components/SignatureFive";
-import SignatureSix from "./components/SignatureSix";
-import SignatureSeven from "./components/SignatureSeven";
-import SignatureEight from "./components/SignatureEight";
-import SignatureNine from "./components/SignatureNine";
-import SignatureTen from "./components/SignatureTen";
-import SignatureEleven from "./components/SignatureEleven";
-import SignatureTwelve from "./components/SignatureTwelve";
-
-interface SignatureProps {
-  name: string;
-  title: string;
-  company: string;
-  email: string;
-  phone: string;
-  website: string;
-  linkedin: string;
-  twitter: string;
-  location: string;
-  image: string;
-}
+import SignatureOne from "./Signatures/SignatureOne";
+import SignatureTwo from "./Signatures/SignatureTwo";
+import SignatureThree from "./Signatures/SignatureThree";
+import SignatureFour from "./Signatures/SignatureFour";
+import SignatureFive from "./Signatures/SignatureFive";
+import SignatureSix from "./Signatures/SignatureSix";
+import SignatureSeven from "./Signatures/SignatureSeven";
+import SignatureEight from "./Signatures/SignatureEight";
+import SignatureNine from "./Signatures/SignatureNine";
+import SignatureTen from "./Signatures/SignatureTen";
+import SignatureEleven from "./Signatures/SignatureEleven";
+import SignatureTwelve from "./Signatures/SignatureTwelve";
+import EmailSignature from "./Signatures/SignatureThirteen";
+import { SignatureProps } from "./types/signatures";
 
 export const signatures: ((props: SignatureProps) => JSX.Element)[] = [
   (props) => (
     <SignatureOne
       {...props}
       socialMedia={{
-        facebook: "https://facebook.com/",
-        linkedin: "https://linkedin.com/",
-        instagram: "https://instagram.com/",
-        twitter: "https://twitter.com/",
-        youtube: "https://youtube.com/",
+        linkedin: {
+          url: props.linkedin,
+          icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050615/myImages/fyoseagbv3vpk5pfs5a8.png",
+          name: "LinkedIn",
+        },
+        instagram: {
+          url: props.instagram,
+          icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050614/myImages/ktloviwi4rii9pcjzfsl.png",
+          name: "Instagram",
+        },
+        twitter: {
+          url: props.twitter,
+          icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050616/myImages/mr5khmgzja02pg19pada.png",
+          name: "Twitter",
+        },
+        youtube: {
+          url: props.youtube,
+          icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050617/myImages/nzyk1soz7yizawtvvyfp.png",
+          name: "YouTube",
+        },
+        tiktok: {
+          url: props.tiktok,
+          icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050615/myImages/kuet5f4bqruqp5c7vbtf.png",
+          name: "TikTok",
+        },
+       
       }}
     />
   ),
+
   (props) => <SignatureTwo {...props} />,
   (props) => <SignatureThree {...props} />,
   (props) => <SignatureFour {...props} />,
@@ -63,4 +74,5 @@ export const signatures: ((props: SignatureProps) => JSX.Element)[] = [
     />
   ),
   (props) => <SignatureTwelve {...props} />,
+  (props) => <EmailSignature {...props} />,
 ];

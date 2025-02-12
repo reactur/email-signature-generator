@@ -1,16 +1,5 @@
 import {  Linkedin, Twitter } from "lucide-react";
-
-interface SignatureProps {
-  name: string;
-  title: string;
-  company: string;
-  email: string;
-  phone: string;
-  website: string;
-  linkedin: string;
-  twitter: string;
-  location: string;
-}
+import {SignatureProps} from "../types/signatures"
 
 const SignatureNine = (props: SignatureProps) => {
   return (

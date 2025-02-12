@@ -7,7 +7,6 @@ const SocialMediaIcons = () => {
       platform: "Facebook",
       icons: [
         "https://cdn-icons-png.flaticon.com/512/733/733547.png",
-        "https://cdn-icons-png.flaticon.com/512/733/733573.png",
         "https://cdn-icons-png.flaticon.com/512/124/124010.png",
         "https://cdn-icons-png.flaticon.com/512/5968/5968764.png",
       ],
@@ -19,6 +18,7 @@ const SocialMediaIcons = () => {
         "https://cdn-icons-png.flaticon.com/512/124/124021.png",
         "https://cdn-icons-png.flaticon.com/512/145/145812.png",
         "https://cdn-icons-png.flaticon.com/512/889/889147.png",
+        "https://cdn-icons-png.flaticon.com/512/174/174876.png",
       ],
     },
     {
@@ -43,18 +43,9 @@ const SocialMediaIcons = () => {
       platform: "YouTube",
       icons: [
         "https://cdn-icons-png.flaticon.com/512/1384/1384060.png",
-        "https://cdn-icons-png.flaticon.com/512/1384/1384061.png",
+        "https://cdn-icons-png.flaticon.com/512/733/733590.png",
         "https://cdn-icons-png.flaticon.com/512/3670/3670147.png",
-        "https://cdn-icons-png.flaticon.com/512/5968/5968812.png",
-      ],
-    },
-    {
-      platform: "Pinterest",
-      icons: [
-        "https://cdn-icons-png.flaticon.com/512/145/145808.png",
-        "https://cdn-icons-png.flaticon.com/512/733/733572.png",
-        "https://cdn-icons-png.flaticon.com/512/2111/2111475.png",
-        "https://cdn-icons-png.flaticon.com/512/1409/1409944.png",
+    
       ],
     },
     {
@@ -62,17 +53,9 @@ const SocialMediaIcons = () => {
       icons: [
         "https://cdn-icons-png.flaticon.com/512/733/733585.png",
         "https://cdn-icons-png.flaticon.com/512/124/124034.png",
-        "https://cdn-icons-png.flaticon.com/512/733/733590.png",
-        "https://cdn-icons-png.flaticon.com/512/1409/1409938.png",
-      ],
-    },
-    {
-      platform: "Snapchat",
-      icons: [
-        "https://cdn-icons-png.flaticon.com/512/1409/1409935.png",
-        "https://cdn-icons-png.flaticon.com/512/174/174876.png",
-        "https://cdn-icons-png.flaticon.com/512/2111/2111501.png",
-        "https://cdn-icons-png.flaticon.com/512/3073/3073323.png",
+        "https://cdn-icons-png.flaticon.com/512/5968/5968841.png",
+        "https://cdn-icons-png.flaticon.com/512/5968/5968850.png",
+     
       ],
     },
     {
@@ -82,6 +65,7 @@ const SocialMediaIcons = () => {
         "https://cdn-icons-png.flaticon.com/512/3046/3046130.png",
         "https://cdn-icons-png.flaticon.com/512/3046/3046126.png",
         "https://cdn-icons-png.flaticon.com/512/3046/3046129.png",
+        "https://cdn-icons-png.flaticon.com/512/5968/5968812.png",
       ],
     },
     {
@@ -89,19 +73,17 @@ const SocialMediaIcons = () => {
       icons: [
         "https://cdn-icons-png.flaticon.com/512/5968/5968756.png",
         "https://cdn-icons-png.flaticon.com/512/5968/5968757.png",
-        "https://cdn-icons-png.flaticon.com/512/5968/5968841.png",
-        "https://cdn-icons-png.flaticon.com/512/5968/5968850.png",
-      ],
+        "https://cdn-icons-png.flaticon.com/512/5968/5968759.png"
+      ]
     },
     {
       platform: "Reddit",
       icons: [
         "https://cdn-icons-png.flaticon.com/512/2111/2111589.png",
-        "https://cdn-icons-png.flaticon.com/512/2111/2111620.png",
-        "https://cdn-icons-png.flaticon.com/512/5968/5968875.png",
-        "https://cdn-icons-png.flaticon.com/512/3536/3536421.png",
-      ],
-    },
+        "https://cdn-icons-png.flaticon.com/512/1409/1409938.png",
+      ]
+    }
+    
   ];
 
   const handleDownload = (url: string) => {

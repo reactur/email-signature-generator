@@ -1,39 +1,30 @@
 import { Mail, Phone, Globe, Linkedin, Twitter, MapPin } from "lucide-react";
+import {SignatureProps} from "../types/signatures"
 
-interface SignatureProps {
-  name: string;
-  title: string;
-  company: string;
-  email: string;
-  phone: string;
-  website: string;
-  linkedin: string;
-  twitter: string;
-  location: string;
-  image: string;
-}
-
-const SignatureThree = (props: SignatureProps) => {
+const SignatureFour = (props: SignatureProps) => {
   return (
     <div
       style={{
-        width: "450px",
-        margin: "auto",
-        backgroundColor: "#ffffff",
+        padding: "16px",
+        backgroundColor: "#1A202C",
+        color: "white",
         borderRadius: "12px",
-        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.15)",
+        animation: "fade-in 0.3s ease-in-out",
+        maxWidth: "450px",
+        margin: "auto",
+        boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
         fontFamily: "'Arial', sans-serif",
-        overflow: "hidden",
       }}
     >
-      {/* Image Section */}
       <div
         style={{
-          backgroundColor: "#007BFF",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          padding: "20px 0",
+          gap: "16px",
         }}
       >
         {props.image && (
@@ -41,54 +32,52 @@ const SignatureThree = (props: SignatureProps) => {
             src={props.image}
             alt={`${props.name}'s avatar`}
             style={{
-              width: "100px",
-              height: "100px",
+              width: "80px",
+              height: "80px",
               borderRadius: "50%",
               objectFit: "cover",
-              border: "4px solid white",
+              border: "2px solid #63B3ED",
             }}
           />
         )}
-        <h2
-          style={{
-            color: "#ffffff",
-            fontSize: "1.5rem",
-            fontWeight: "bold",
-            marginTop: "10px",
-          }}
-        >
-          {props.name}
-        </h2>
-        <p style={{ color: "#E2E8F0", fontSize: "1rem", marginBottom: "0" }}>
-          {props.title}
-        </p>
+        <div style={{ textAlign: "center" }}>
+          <h3
+            style={{
+              fontSize: "1.25rem",
+              fontWeight: "bold",
+              marginBottom: "4px",
+            }}
+          >
+            {props.name}
+          </h3>
+          <p style={{ color: "#A0AEC0", marginBottom: "4px" }}>{props.title}</p>
+          <p style={{ color: "#718096" }}>{props.company}</p>
+        </div>
       </div>
 
-      {/* Info Section */}
       <div
         style={{
-          padding: "20px",
           display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
           gap: "16px",
-          fontSize: "0.9rem",
-          color: "#2D3748",
+          fontSize: "0.875rem",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <Mail size={18} style={{ color: "#007BFF" }} />
+          <Mail size={18} style={{ color: "#63B3ED" }} />
           <span>{props.email}</span>
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <Phone size={18} style={{ color: "#007BFF" }} />
+          <Phone size={16} style={{ color: "#63B3ED" }} />
           <span>{props.phone}</span>
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <Linkedin size={18} style={{ color: "#007BFF" }} />
+          <Linkedin size={16} style={{ color: "#63B3ED" }} />
           <a
             href={props.linkedin ? `https://${props.linkedin}` : "#"}
-            style={{ color: "#007BFF", textDecoration: "none" }}
+            style={{ color: "white", textDecoration: "none" }}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -97,10 +86,10 @@ const SignatureThree = (props: SignatureProps) => {
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <Twitter size={18} style={{ color: "#007BFF" }} />
+          <Twitter size={16} style={{ color: "#63B3ED" }} />
           <a
             href={`https://twitter.com/${props.twitter.replace("@", "")}`}
-            style={{ color: "#007BFF", textDecoration: "none" }}
+            style={{ color: "white", textDecoration: "none" }}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -109,10 +98,10 @@ const SignatureThree = (props: SignatureProps) => {
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <Globe size={18} style={{ color: "#007BFF" }} />
+          <Globe size={16} style={{ color: "#63B3ED" }} />
           <a
             href={props.website ? `https://${props.website}` : "#"}
-            style={{ color: "#007BFF", textDecoration: "none" }}
+            style={{ color: "white", textDecoration: "none" }}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -121,25 +110,12 @@ const SignatureThree = (props: SignatureProps) => {
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <MapPin size={18} style={{ color: "#007BFF" }} />
+          <MapPin size={16} style={{ color: "#63B3ED" }} />
           <span>{props.location}</span>
         </div>
-      </div>
-
-      <div
-        style={{
-          backgroundColor: "#F7FAFC",
-          padding: "10px 20px",
-          textAlign: "center",
-          fontSize: "0.8rem",
-          color: "#A0AEC0",
-          borderTop: "1px solid #E2E8F0",
-        }}
-      >
-        © 2025 {props.company}. All rights reserved.
       </div>
     </div>
   );
 };
 
-export default SignatureThree;
+export default SignatureFour;
