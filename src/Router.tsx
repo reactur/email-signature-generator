@@ -16,9 +16,10 @@ function AppContent() {
 
   useEffect(() => {
     setLoading(true);
+    window.scrollTo(0,0)
     const timer = setTimeout(() => {
       setLoading(false);
-      window.scrollTo(0,0)
+
     }, 500); 
 
     return () => clearTimeout(timer);
