@@ -4,6 +4,7 @@ import { signatures } from "./signatures"
 import type { FormData } from "./types/signatures"
 
 
+
 //keeping it because its not paid
 const CLOUDINARY_UPLOAD_PRESET = "upload_preset"
 const CLOUDINARY_CLOUD_NAME = "dkiow1fed"
@@ -119,16 +120,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-200">
-      <div className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 py-8 sm:py-12">
-          <h1 className="text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600">
-            Email Signature Generator
-          </h1>
-          <p className="mt-4 text-center text-gray-600 max-w-2xl mx-auto">
-            Create a professional email signature in minutes. Choose from multiple styles and customize it to match your brand.
-          </p>
-        </div>
-      </div>
+     
 
       <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -200,7 +192,7 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6" id="styles">
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
               <h2 className="text-xl font-semibold text-gray-800 mb-4">
                 Choose Style
@@ -212,8 +204,8 @@ const App: React.FC = () => {
                     onClick={() => setSelectedSignature(index)}
                     className={`p-4 rounded-lg border-2 transition-all ${
                       selectedSignature === index
-                        ? "border-purple-600 bg-purple-50 text-purple-700"
-                        : "border-gray-200 hover:border-purple-300 text-gray-600 hover:text-purple-600"
+                        ? "border-violet-600 bg-purple-50 text-violet-700"
+                        : "border-gray-200 hover:border-purple-300 text-gray-600 hover:text-violet-600"
                     }`}
                   >
                     Style {index + 1}
@@ -229,7 +221,7 @@ const App: React.FC = () => {
                 </h2>
                 <button
                   onClick={downloadHtmlFile}
-                  className="flex items-center gap-2 px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-600 transition-all"
+                  className="flex items-center gap-2 px-4 py-2 bg-violet-700 text-white rounded-md hover:bg-violet-600 transition-all"
                 >
                   {copied ? <Check size={20} /> : <Download size={20} />}
                   {copied ? "Downloaded!" : "Download HTML"}
