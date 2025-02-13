@@ -20,27 +20,27 @@ export const signatures: ((props: SignatureProps) => JSX.Element)[] = [
       socialMedia={{
         linkedin: {
           url: props.linkedin,
-          icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050615/myImages/fyoseagbv3vpk5pfs5a8.png",
+          icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050615/myImages/kgeztmjzgt54lsuu7fp4.png",
           name: "LinkedIn",
         },
         instagram: {
           url: props.instagram,
-          icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050614/myImages/ktloviwi4rii9pcjzfsl.png",
+          icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050614/myImages/gsvbubraonclsuawrxaq.png",
           name: "Instagram",
         },
         twitter: {
           url: props.twitter,
-          icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050616/myImages/mr5khmgzja02pg19pada.png",
+          icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050617/myImages/vwylxnc96rzmj8csdn3r.png",
           name: "Twitter",
         },
         youtube: {
           url: props.youtube,
-          icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050617/myImages/nzyk1soz7yizawtvvyfp.png",
+          icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050630/myImages/wuxwc9xu6xzytjrltb7c.png",
           name: "YouTube",
         },
         tiktok: {
           url: props.tiktok,
-          icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050615/myImages/kuet5f4bqruqp5c7vbtf.png",
+          icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050616/myImages/pkjbq4wacc31p0grvouq.png",
           name: "TikTok",
         },
        
