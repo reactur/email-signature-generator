@@ -6,6 +6,7 @@ import ImageGallery from "./ImageGallery";
 import HtmlToPngConverter from "./HtmlToPngConverter";
 import Navbar from "./components/Interface/NavBar";
 import Home from "./Home";
+import Footer from "./components/Interface/Footer";
 
 export default function AppRouter() {
   return (
@@ -19,6 +20,7 @@ export default function AppRouter() {
         <Route path="/html-to-png" element={<HtmlToPngConverter />} />
         <Route path="/cld" element={<ImageGallery />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

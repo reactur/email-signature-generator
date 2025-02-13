@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+.container {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  padding:16px; 
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 30px 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding:32px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    padding:40px;
+  }
+}
+
+
 img {
     max-width: none !important;
   }

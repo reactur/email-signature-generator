@@ -36,24 +36,31 @@ const features = [
 export default function Features() {
   return (
     <section id="features" className="container space-y-16 py-24 md:py-32">
-      <div className="mx-auto max-w-7xl text-center">
-        <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-5xl">Powerful Features</h2>
-        <p className="mt-4 text-muted-foreground sm:text-lg">
+      <div className="text-center">
+        <h2 className="font-bold text-4xl sm:text-5xl bg-gradient-to-r from-violet-400 to-violet-700 bg-clip-text text-transparent">
+          Powerful Features
+        </h2>
+        <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
           Everything you need to create the perfect email signature.
         </p>
       </div>
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {features.map((feature) => (
-          <div key={feature.name} className="relative bg-white overflow-hidden rounded-lg border bg-background p-8">
-            <div className="flex items-center gap-4">
-              <feature.icon className="h-8 w-8 text-primary" />
-              <h3 className="font-bold">{feature.name}</h3>
+          <div
+            key={feature.name}
+            className="relative flex flex-col items-start space-y-4 rounded-2xl border border-gray-200 bg-white/70 p-6 shadow-lg backdrop-blur-lg transition-transform duration-300 hover:shadow-2xl"
+          >
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-violet-100 text-violet-700">
+              <feature.icon className="h-6 w-6" />
             </div>
-            <p className="mt-2 text-muted-foreground">{feature.description}</p>
+
+            <h3 className="text-lg font-semibold">{feature.name}</h3>
+
+            <p className="text-gray-600">{feature.description}</p>
           </div>
         ))}
       </div>
     </section>
   )
 }
-
