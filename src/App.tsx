@@ -2,8 +2,7 @@ import React, { useState, ChangeEvent } from "react"
 import {  Check, Upload, Loader2, Download } from 'lucide-react'
 import { signatures } from "./signatures"
 import type { FormData } from "./types/signatures"
-import Features from "./components/Features"
-import Hero from "./components/Interface/Hero"
+
 
 
 //keeping it because its not paid
@@ -205,8 +204,8 @@ const App: React.FC = () => {
                     onClick={() => setSelectedSignature(index)}
                     className={`p-4 rounded-lg border-2 transition-all ${
                       selectedSignature === index
-                        ? "border-purple-600 bg-purple-50 text-purple-700"
-                        : "border-gray-200 hover:border-purple-300 text-gray-600 hover:text-purple-600"
+                        ? "border-violet-600 bg-purple-50 text-violet-700"
+                        : "border-gray-200 hover:border-purple-300 text-gray-600 hover:text-violet-600"
                     }`}
                   >
                     Style {index + 1}
@@ -222,7 +221,7 @@ const App: React.FC = () => {
                 </h2>
                 <button
                   onClick={downloadHtmlFile}
-                  className="flex items-center gap-2 px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-600 transition-all"
+                  className="flex items-center gap-2 px-4 py-2 bg-violet-700 text-white rounded-md hover:bg-violet-600 transition-all"
                 >
                   {copied ? <Check size={20} /> : <Download size={20} />}
                   {copied ? "Downloaded!" : "Download HTML"}

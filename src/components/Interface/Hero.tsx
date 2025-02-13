@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 
@@ -8,7 +9,7 @@ export default function Hero() {
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
           Create Professional
           <br />
-          <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text">
+          <span className="bg-gradient-to-r from-violet-600 to-violet-700 bg-clip-text text-transparent">
             Email Signatures
           </span>
         </h1>
@@ -18,10 +19,12 @@ export default function Hero() {
         </p>
       </div>
       <div className="flex gap-4">
-        <Button size="lg">
-          Create Your Signature
-          <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
+        <Link to="/signature-generator">
+          <Button size="lg" className="bg-violet-700 text-white hover:bg-violet-800">
+            Create Your Signature
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </Link>
         <Button variant="outline" size="lg">
           View Styles
         </Button>
@@ -29,4 +32,3 @@ export default function Hero() {
     </section>
   )
 }
-

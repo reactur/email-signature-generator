@@ -46,9 +46,11 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden md:flex items-center">
+        <Link to="/signature-generator">
           <button className="px-4 py-2 bg-violet-600 text-white rounded-lg shadow-md hover:bg-violet-700 transition">
             Create Signature
           </button>
+          </Link>
         </div>
       </div>
 
@@ -76,12 +78,14 @@ export default function Navbar() {
             >
               How It Works
             </Link>
+            <Link to="/signature-generator">
             <button
               className="mt-4 w-full px-4 py-2 bg-violet-700 text-white rounded-lg shadow-md hover:bg-violet-700 transition"
               onClick={() => setIsOpen(false)}
             >
               Create Signature
             </button>
+            </Link>
           </nav>
         </div>
       )}
