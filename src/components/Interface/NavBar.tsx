@@ -1,14 +1,18 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleScrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (location.pathname === "/") {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      localStorage.setItem("scrollToSection", sectionId);
+      navigate("/");
     }
   };
 
@@ -24,24 +28,15 @@ export default function Navbar() {
           </button>
         </div>
 
-        <Link
-          to="/"
-          className="flex items-center text-xl font-bold text-gray-800"
-        >
+        <Link to="/" className="flex items-center text-xl font-bold text-gray-800">
           ES Generator
         </Link>
 
         <nav className="hidden md:flex flex-1 justify-center space-x-6 text-sm font-medium">
-          <button
-            onClick={() => handleScrollToSection("features")}
-            className="transition-colors hover:text-violet-600"
-          >
+          <button onClick={() => handleScrollToSection("features")} className="transition-colors hover:text-violet-600">
             Features
           </button>
-          <button
-            onClick={() => handleScrollToSection("how-it-works")}
-            className="transition-colors hover:text-violet-600"
-          >
+          <button onClick={() => handleScrollToSection("how-it-works")} className="transition-colors hover:text-violet-600">
             How It Works
           </button>
         </nav>
@@ -77,10 +72,7 @@ export default function Navbar() {
               How It Works
             </button>
             <Link to="/signature-generator">
-              <button
-                className="mt-4 w-full px-4 py-2 bg-violet-700 text-white rounded-lg shadow-md hover:bg-violet-700 transition"
-                onClick={() => setIsOpen(false)}
-              >
+              <button className="mt-4 w-full px-4 py-2 bg-violet-700 text-white rounded-lg shadow-md hover:bg-violet-700 transition" onClick={() => setIsOpen(false)}>
                 Create Signature
               </button>
             </Link>
