@@ -62,68 +62,76 @@ const SvgToPngConverter: React.FC = () => {
   };
 
   return (
-    <div className="p-6 space-y-6 max-w-lg mx-auto bg-gray-100 rounded-lg shadow-md">
-      <h1 className="text-xl font-bold text-center">SVG to PNG Converter</h1>
-      <div className="space-y-4">
+    <div className="p-8 max-w-xl mx-auto bg-white rounded-2xl shadow-lg border border-gray-200">
+      <h1 className="text-2xl font-bold text-center text-gray-800">SVG to PNG Converter</h1>
+      
+      <div className="space-y-6 mt-6">
         <div className="space-y-2">
-          <label className="block font-medium">Upload SVG File</label>
+          <label className="block font-semibold text-gray-700">Upload SVG File</label>
           <input
             ref={fileInputRef}
             type="file"
             accept="image/svg+xml"
             onChange={handleSvgUpload}
-            className="block w-full px-3 py-2 border rounded-lg shadow-sm focus:ring focus:ring-blue-200"
+            className="block w-full px-4 py-2 border rounded-lg shadow-sm focus:ring focus:ring-violet-200"
           />
         </div>
+
         <div className="space-y-2">
-          <label className="block font-medium">Paste SVG Code</label>
+          <label className="block font-semibold text-gray-700">Paste SVG Code</label>
           <textarea
-            rows={6}
+            rows={5}
             value={svgContent.includes("<svg") ? svgContent : ""}
             onChange={handleSvgPaste}
             placeholder="Paste your SVG content here..."
-            className="block w-full px-3 py-2 border rounded-lg shadow-sm focus:ring focus:ring-blue-200"
+            className="block w-full px-4 py-2 border rounded-lg shadow-sm focus:ring focus:ring-violet-200"
           />
         </div>
+
         {svgContent && (
-          <div>
-            <h2 className="text-lg font-semibold">SVG Preview:</h2>
+          <div className="space-y-2">
+            <h2 className="text-lg font-semibold text-gray-800">SVG Preview:</h2>
             <div
               dangerouslySetInnerHTML={{ __html: svgContent }}
-              className="border rounded-lg p-4 bg-white overflow-auto max-h-64"
+              className="border rounded-lg p-4 bg-gray-50 overflow-auto max-h-64"
             />
           </div>
         )}
-      </div>
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center gap-2">
-          <input
-            type="number"
-            value={width}
-            onChange={(e) => setWidth(Number(e.target.value))}
-            placeholder="Width"
-            className="w-20 px-2 py-1 border rounded-lg shadow-sm focus:ring focus:ring-blue-200"
-          />
-          <input
-            type="number"
-            value={height}
-            onChange={(e) => setHeight(Number(e.target.value))}
-            placeholder="Height"
-            className="w-20 px-2 py-1 border rounded-lg shadow-sm focus:ring focus:ring-blue-200"
-          />
+
+        <div className="flex flex-wrap gap-4 items-center justify-between">
+          <div className="flex gap-2 items-center">
+            <input
+              type="number"
+              value={width}
+              onChange={(e) => setWidth(Number(e.target.value))}
+              placeholder="Width"
+              className="w-24 px-3 py-2 border rounded-lg shadow-sm focus:ring focus:ring-violet-200"
+            />
+            <span className="text-gray-700">x</span>
+            <input
+              type="number"
+              value={height}
+              onChange={(e) => setHeight(Number(e.target.value))}
+              placeholder="Height"
+              className="w-24 px-3 py-2 border rounded-lg shadow-sm focus:ring focus:ring-violet-200"
+            />
+          </div>
+          <button
+            onClick={convertSvgToPng}
+            disabled={!svgContent}
+            className="px-5 py-2 bg-violet-600 text-white font-semibold rounded-lg shadow-md hover:bg-violet-700 focus:ring focus:ring-violet-200 disabled:bg-gray-300"
+          >
+            Convert to PNG
+          </button>
         </div>
-        <button
-          onClick={convertSvgToPng}
-          disabled={!svgContent}
-          className="px-4 py-2 bg-blue-600 text-white font-medium rounded-lg shadow-sm hover:bg-blue-700 focus:ring focus:ring-blue-200"
-        >
-          Convert to PNG
-        </button>
       </div>
+
+   
       <canvas ref={canvasRef} className="hidden" />
+
       {pngUrl && (
-        <div className="space-y-2">
-          <h2 className="text-lg font-semibold">Generated PNG:</h2>
+        <div className="mt-6 space-y-4">
+          <h2 className="text-lg font-semibold text-gray-800">Generated PNG:</h2>
           <img
             src={pngUrl}
             alt="Converted PNG"
@@ -132,7 +140,7 @@ const SvgToPngConverter: React.FC = () => {
           <a
             href={pngUrl}
             download="converted-image.png"
-            className="block text-center px-4 py-2 bg-green-600 text-white font-medium rounded-lg shadow-sm hover:bg-green-700"
+            className="block text-center px-5 py-2 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700"
           >
             Download PNG
           </a>
