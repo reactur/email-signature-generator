@@ -13,6 +13,7 @@ export default function AppRouter() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/signature-generator" element={<App />} />
         <Route path="/icons" element={<SocialMediaIcons />} />
         <Route path="/svg-to-png" element={<SvgToPngConverter />} />
         <Route path="/html-to-png" element={<HtmlToPngConverter />} />
