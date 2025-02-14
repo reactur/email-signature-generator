@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Loader from "./components/Interface/Loader";
 
 const ImageGallery = () => {
   const [images, setImages] = useState<{ url: string; width: number; height: number }[]>([]);
@@ -45,7 +46,7 @@ const ImageGallery = () => {
           </div>
         ))
       ) : (
-        <p>Loading images...</p>
+        <Loader />
       )}
     </div>
   );
