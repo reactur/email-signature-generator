@@ -152,7 +152,7 @@ const App: React.FC = () => {
                         className={`flex items-center justify-center w-full px-4 py-2 border-2 border-dashed rounded-lg cursor-pointer
                           ${uploading 
                             ? 'bg-gray-50 border-gray-300' 
-                            : 'hover:bg-gray-50 border-gray-300 hover:border-purple-500'
+                            : 'hover:bg-gray-50 border-gray-300 hover:border-violet-500'
                           }`}
                       >
                         {uploading ? (
@@ -184,7 +184,7 @@ const App: React.FC = () => {
                       name={key}
                       value={value}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none"
+                      className="w-full px-3 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-violet-500 focus:border-violet-500 outline-none"
                     />
                   )}
                 </div>
@@ -204,8 +204,8 @@ const App: React.FC = () => {
                     onClick={() => setSelectedSignature(index)}
                     className={`p-4 rounded-lg border-2 transition-all ${
                       selectedSignature === index
-                        ? "border-violet-600 bg-purple-50 text-violet-700"
-                        : "border-gray-200 hover:border-purple-300 text-gray-600 hover:text-violet-600"
+                        ? "border-violet-600 bg-violet-50 text-violet-700"
+                        : "border-gray-200 hover:border-violet-300 text-gray-600 hover:text-violet-600"
                     }`}
                   >
                     Style {index + 1}
