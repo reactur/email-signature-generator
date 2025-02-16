@@ -1,149 +1,304 @@
-import { Mail, Phone, Globe, Linkedin, Twitter, MapPin } from "lucide-react";
-import {SignatureProps} from "../types/signatures"
+import { type SignatureProps } from "../types/signatures"
 
-const SignatureFive = (props: SignatureProps) => {
+const EmailSignature = (props: SignatureProps) => {
   return (
-    <div
+    <table
+      cellPadding="0"
+      cellSpacing="0"
       style={{
-        padding: "24px",
-        backgroundColor: "#FFFFFF",
-        border: "1px solid #E5E7EB",
-        borderRadius: "12px",
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-        color: "#4A5568",
+        width: "100%",
         maxWidth: "500px",
-        margin: "auto",
-        boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.1)",
-        textAlign: "center",
+        borderCollapse: "collapse",
+        backgroundColor: "#ffffff",
+        fontFamily: "Arial, sans-serif",
+        border: "1px solid #e5e7eb",
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "16px",
-          marginBottom: "16px",
-        }}
-      >
-        {props.image && (
-          <img
-            src={props.image}
-            alt={`${props.name}'s avatar`}
-            style={{
-              width: "80px",
-              height: "80px",
-              borderRadius: "50%",
-              objectFit: "cover",
-              border: "2px solid #6366F1",
-            }}
-          />
-        )}
-        <div style={{ textAlign: "left" }}>
-          <h3
-            style={{
-              fontSize: "1.5rem",
-              fontWeight: "700",
-              color: "#1A202C",
-              margin: 0,
-            }}
-          >
-            {props.name}
-          </h3>
-          <p
-            style={{
-              fontStyle: "italic",
-              color: "#718096",
-              margin: "4px 0",
-            }}
-          >
-            {props.title}
-          </p>
-          <p style={{ color: "#A0AEC0", margin: 0 }}>{props.company}</p>
-        </div>
-      </div>
+      <tbody>
+        <tr>
+          <td style={{ padding: "24px" }}>
+            <table
+              cellPadding="0"
+              cellSpacing="0"
+              style={{ width: "100%", borderCollapse: "collapse" }}
+            >
+              {/* Header with Image and Name */}
+              <tbody>
+                <tr>
+                  <td>
+                    <table
+                      cellPadding="0"
+                      cellSpacing="0"
+                      style={{ width: "100%", borderCollapse: "collapse" }}
+                    >
+                      <tbody>
+                        <tr>
+                          <td style={{ width: "80px", verticalAlign: "top" }}>
+                            <img
+                              src={props.image || "/placeholder.svg?height=80&width=80"}
+                              alt=""
+                              width="80"
+                              height="80"
+                              style={{
+                                display: "block",
+                                border: "2px solid #6366f1",
+                              }}
+                            />
+                          </td>
+                          <td style={{ width: "16px" }} />
+                          <td style={{ verticalAlign: "top" }}>
+                            <table
+                              cellPadding="0"
+                              cellSpacing="0"
+                              style={{ width: "100%", borderCollapse: "collapse" }}
+                            >
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <span
+                                      style={{
+                                        display: "block",
+                                        fontSize: "24px",
+                                        fontWeight: "bold",
+                                        color: "#1a202c",
+                                      }}
+                                    >
+                                      {props.name}
+                                    </span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td style={{ paddingTop: "4px" }}>
+                                    <span
+                                      style={{
+                                        display: "block",
+                                        fontSize: "16px",
+                                        color: "#718096",
+                                        fontStyle: "italic",
+                                      }}
+                                    >
+                                      {props.title}
+                                    </span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td style={{ paddingTop: "4px" }}>
+                                    <span
+                                      style={{
+                                        display: "block",
+                                        fontSize: "14px",
+                                        color: "#a0aec0",
+                                      }}
+                                    >
+                                      {props.company}
+                                    </span>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
 
-      <div
-        style={{
-          marginTop: "16px",
-          textAlign: "left",
-          display: "flex",
-          flexDirection: "column",
-          gap: "12px",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <Mail size={18} style={{ color: "#6366F1" }} />
-          <span style={{ color: "#555" }}>{props.email}</span>
-        </div>
+                {/* Contact Information */}
+                <tr>
+                  <td style={{ paddingTop: "20px" }}>
+                    <table
+                      cellPadding="0"
+                      cellSpacing="0"
+                      style={{ width: "100%", borderCollapse: "collapse" }}
+                    >
+                      <tbody>
+                        {props.email && (
+                          <tr>
+                            <td style={{ paddingBottom: "12px" }}>
+                              <table cellPadding="0" cellSpacing="0">
+                                <tbody>
+                                  <tr>
+                                    <td style={{ width: "24px", paddingRight: "8px" }}>
+                                      <img
+                                        src="/placeholder.svg?height=18&width=18"
+                                        alt=""
+                                        width="18"
+                                        height="18"
+                                        style={{ display: "block" }}
+                                      />
+                                    </td>
+                                    <td>
+                                      <a
+                                        href={`mailto:${props.email}`}
+                                        style={{
+                                          color: "#555555",
+                                          fontSize: "14px",
+                                          textDecoration: "none",
+                                        }}
+                                      >
+                                        {props.email}
+                                      </a>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        )}
+                        {props.phone && (
+                          <tr>
+                            <td style={{ paddingBottom: "12px" }}>
+                              <table cellPadding="0" cellSpacing="0">
+                                <tbody>
+                                  <tr>
+                                    <td style={{ width: "24px", paddingRight: "8px" }}>
+                                      <img
+                                        src="/placeholder.svg?height=18&width=18"
+                                        alt=""
+                                        width="18"
+                                        height="18"
+                                        style={{ display: "block" }}
+                                      />
+                                    </td>
+                                    <td>
+                                      <a
+                                        href={`tel:${props.phone}`}
+                                        style={{
+                                          color: "#555555",
+                                          fontSize: "14px",
+                                          textDecoration: "none",
+                                        }}
+                                      >
+                                        {props.phone}
+                                      </a>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        )}
+                        {props.website && (
+                          <tr>
+                            <td style={{ paddingBottom: "12px" }}>
+                              <table cellPadding="0" cellSpacing="0">
+                                <tbody>
+                                  <tr>
+                                    <td style={{ width: "24px", paddingRight: "8px" }}>
+                                      <img
+                                        src="/placeholder.svg?height=18&width=18"
+                                        alt=""
+                                        width="18"
+                                        height="18"
+                                        style={{ display: "block" }}
+                                      />
+                                    </td>
+                                    <td>
+                                      <a
+                                        href={`https://${props.website}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{
+                                          color: "#4a90e2",
+                                          fontSize: "14px",
+                                          textDecoration: "none",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        {props.website}
+                                      </a>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        )}
+                        {props.location && (
+                          <tr>
+                            <td>
+                              <table cellPadding="0" cellSpacing="0">
+                                <tbody>
+                                  <tr>
+                                    <td style={{ width: "24px", paddingRight: "8px" }}>
+                                      <img
+                                        src="/placeholder.svg?height=18&width=18"
+                                        alt=""
+                                        width="18"
+                                        height="18"
+                                        style={{ display: "block" }}
+                                      />
+                                    </td>
+                                    <td>
+                                      <span
+                                        style={{
+                                          color: "#555555",
+                                          fontSize: "14px",
+                                        }}
+                                      >
+                                        {props.location}
+                                      </span>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <Phone size={18} style={{ color: "#6366F1" }} />
-          <span style={{ color: "#555" }}>{props.phone}</span>
-        </div>
+                {/* Social Media Icons */}
+                <tr>
+                  <td style={{ paddingTop: "24px", textAlign: "center" }}>
+                    <table
+                      cellPadding="0"
+                      cellSpacing="0"
+                      style={{ width: "100%", borderCollapse: "collapse" }}
+                    >
+                      <tbody>
+                        <tr>
+                          <td>
+                            {props.socialMedia && Object.entries(props.socialMedia).map(([key, social]) =>
+                              social.url ? (
+                                <a
+                                  key={key}
+                                  href={social.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  style={{
+                                    display: "inline-block",
+                                    marginRight: "16px",
+                                    textDecoration: "none",
+                                  }}
+                                >
+                                  <img
+                                    src={social.icon || "/placeholder.svg?height=24&width=24"}
+                                    alt={social.name}
+                                    width="24"
+                                    height="24"
+                                    style={{
+                                      display: "block",
+                                    }}
+                                  />
+                                </a>
+                              ) : null
+                            )}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  )
+}
 
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <Globe size={18} style={{ color: "#6366F1" }} />
-          <a
-            href={props.website ? `https://${props.website}` : "#"}
-            style={{
-              color: "#4A90E2",
-              textDecoration: "none",
-              fontWeight: "bold",
-            }}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {props.website}
-          </a>
-        </div>
-
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <MapPin size={18} style={{ color: "#6366F1" }} />
-          <span style={{ color: "#555" }}>{props.location}</span>
-        </div>
-      </div>
-
-      <div
-        style={{
-          marginTop: "24px",
-          display: "flex",
-          justifyContent: "center",
-          gap: "16px",
-          color: "#718096",
-        }}
-      >
-        <a
-          href={props.linkedin ? `https://${props.linkedin}` : "#"}
-          style={{
-            color: "#718096",
-            textDecoration: "none",
-            transition: "color 0.3s ease-in-out",
-          }}
-          target="_blank"
-          rel="noopener noreferrer"
-          onMouseEnter={(e) => (e.currentTarget.style.color = "#6366F1")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "#718096")}
-        >
-          <Linkedin size={18} />
-        </a>
-
-        <a
-          href={`https://twitter.com/${props.twitter.replace("@", "")}`}
-          style={{
-            color: "#718096",
-            textDecoration: "none",
-            transition: "color 0.3s ease-in-out",
-          }}
-          target="_blank"
-          rel="noopener noreferrer"
-          onMouseEnter={(e) => (e.currentTarget.style.color = "#6366F1")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "#718096")}
-        >
-          <Twitter size={18} />
-        </a>
-      </div>
-    </div>
-  );
-};
-
-export default SignatureFive;
+export default EmailSignature

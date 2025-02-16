@@ -19,15 +19,16 @@ const SignatureThirteen: React.FC<SignatureProps> = ({
 }) => {
 
   const socialMedia = [
-    { url: website, icon: "/icons/website.png", alt: "Website" },
-    { url: linkedin, icon: "/icons/linkedin-mini.png", alt: "LinkedIn" },
-    { url: twitter, icon: "/icons/x-mini.png", alt: "X (Twitter)" },
-    { url: facebook, icon: "/icons/facebook-mini.png", alt: "Facebook" },
-    { url: instagram, icon: "/icons/instagram-mini.png", alt: "Instagram" },
-    { url: youtube, icon: "/icons/youtube-mini.png", alt: "YouTube" },
-    { url: tiktok, icon: "/icons/tiktok-mini.png", alt: "TikTok" },
-    { url: github, icon: "/icons/github-mini.png", alt: "GitHub" },
+    { url: website, icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/internetarchive.svg", alt: "Website" },
+    { url: linkedin, icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg", alt: "LinkedIn" },
+    { url: twitter, icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/x.svg", alt: "X (Twitter)" },
+    { url: facebook, icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/facebook.svg", alt: "Facebook" },
+    { url: instagram, icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/instagram.svg", alt: "Instagram" },
+    { url: youtube, icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/youtube.svg", alt: "YouTube" },
+    { url: tiktok, icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/tiktok.svg", alt: "TikTok" },
+    { url: github, icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg", alt: "GitHub" },
   ];
+  
 
   return (
     <table width="470" style={{ fontSize: "12.8px", borderCollapse: "collapse" }}>

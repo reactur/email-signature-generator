@@ -48,11 +48,146 @@ export const signatures: ((props: SignatureProps) => JSX.Element)[] = [
     />
   ),
 
-  (props) => <SignatureTwo {...props} />,
-  (props) => <SignatureThree {...props} />,
-  (props) => <SignatureFour {...props} />,
-  (props) => <SignatureFive {...props} />,
-  (props) => <SignatureSix {...props} />,
+  (props) => <SignatureTwo {...props}  socialMedia={{
+    linkedin: {
+      url: props.linkedin,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050615/myImages/kgeztmjzgt54lsuu7fp4.png",
+      name: "LinkedIn",
+    },
+    instagram: {
+      url: props.instagram,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050614/myImages/gsvbubraonclsuawrxaq.png",
+      name: "Instagram",
+    },
+    twitter: {
+      url: props.twitter,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050617/myImages/vwylxnc96rzmj8csdn3r.png",
+      name: "Twitter",
+    },
+    youtube: {
+      url: props.youtube,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050630/myImages/wuxwc9xu6xzytjrltb7c.png",
+      name: "YouTube",
+    },
+    tiktok: {
+      url: props.tiktok,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050616/myImages/pkjbq4wacc31p0grvouq.png",
+      name: "TikTok",
+    },
+   
+  }} />,
+  (props) => <SignatureThree {...props}  socialMedia={{
+    linkedin: {
+      url: props.linkedin,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050615/myImages/kgeztmjzgt54lsuu7fp4.png",
+      name: "LinkedIn",
+    },
+    instagram: {
+      url: props.instagram,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050614/myImages/gsvbubraonclsuawrxaq.png",
+      name: "Instagram",
+    },
+    twitter: {
+      url: props.twitter,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050617/myImages/vwylxnc96rzmj8csdn3r.png",
+      name: "Twitter",
+    },
+    youtube: {
+      url: props.youtube,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050630/myImages/wuxwc9xu6xzytjrltb7c.png",
+      name: "YouTube",
+    },
+    tiktok: {
+      url: props.tiktok,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050616/myImages/pkjbq4wacc31p0grvouq.png",
+      name: "TikTok",
+    },
+   
+  }} />,
+  (props) => <SignatureFour {...props}  socialMedia={{
+    linkedin: {
+      url: props.linkedin,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050615/myImages/kgeztmjzgt54lsuu7fp4.png",
+      name: "LinkedIn",
+    },
+    instagram: {
+      url: props.instagram,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050614/myImages/gsvbubraonclsuawrxaq.png",
+      name: "Instagram",
+    },
+    twitter: {
+      url: props.twitter,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050617/myImages/vwylxnc96rzmj8csdn3r.png",
+      name: "Twitter",
+    },
+    youtube: {
+      url: props.youtube,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050630/myImages/wuxwc9xu6xzytjrltb7c.png",
+      name: "YouTube",
+    },
+    tiktok: {
+      url: props.tiktok,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050616/myImages/pkjbq4wacc31p0grvouq.png",
+      name: "TikTok",
+    },
+   
+  }} />,
+  (props) => <SignatureFive {...props}  socialMedia={{
+    linkedin: {
+      url: props.linkedin,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050615/myImages/kgeztmjzgt54lsuu7fp4.png",
+      name: "LinkedIn",
+    },
+    instagram: {
+      url: props.instagram,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050614/myImages/gsvbubraonclsuawrxaq.png",
+      name: "Instagram",
+    },
+    twitter: {
+      url: props.twitter,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050617/myImages/vwylxnc96rzmj8csdn3r.png",
+      name: "Twitter",
+    },
+    youtube: {
+      url: props.youtube,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050630/myImages/wuxwc9xu6xzytjrltb7c.png",
+      name: "YouTube",
+    },
+    tiktok: {
+      url: props.tiktok,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050616/myImages/pkjbq4wacc31p0grvouq.png",
+      name: "TikTok",
+    },
+   
+  }} />,
+  (props) => <SignatureSix {...props}  socialMedia={{
+    linkedin: {
+      url: props.linkedin,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050615/myImages/kgeztmjzgt54lsuu7fp4.png",
+      name: "LinkedIn",
+    },
+    instagram: {
+      url: props.instagram,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050614/myImages/gsvbubraonclsuawrxaq.png",
+      name: "Instagram",
+    },
+    twitter: {
+      url: props.twitter,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050617/myImages/vwylxnc96rzmj8csdn3r.png",
+      name: "Twitter",
+    },
+    youtube: {
+      url: props.youtube,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050630/myImages/wuxwc9xu6xzytjrltb7c.png",
+      name: "YouTube",
+    },
+    tiktok: {
+      url: props.tiktok,
+      icon: "https://res.cloudinary.com/dkiow1fed/image/upload/v1738050616/myImages/pkjbq4wacc31p0grvouq.png",
+      name: "TikTok",
+    },
+   
+  }} />,
   (props) => <SignatureSeven {...props} />,
   (props) => <SignatureEight {...props} />,
   (props) => <SignatureNine {...props} />,
