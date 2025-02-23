@@ -1,4 +1,5 @@
 import { type SignatureProps } from "../types/signatures"
+import { Mail, Phone, Globe, MapPin } from 'lucide-react'
 
 const EmailSignature = (props: SignatureProps) => {
   return (
@@ -7,93 +8,83 @@ const EmailSignature = (props: SignatureProps) => {
       cellSpacing="0"
       style={{
         width: "100%",
-        maxWidth: "500px",
+        maxWidth: "550px",
         borderCollapse: "collapse",
         backgroundColor: "#ffffff",
-        fontFamily: "Arial, sans-serif",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
       }}
     >
       <tbody>
         <tr>
-          <td>
+          <td style={{ padding: "24px" }}>
             <table
               cellPadding="0"
               cellSpacing="0"
               style={{
                 width: "100%",
                 borderCollapse: "collapse",
-                backgroundColor: "#6366f1",
-                border: "1px solid #4f46e5",
+                borderRadius: "8px",
+                overflow: "hidden",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
               }}
             >
               <tbody>
                 <tr>
-                  <td style={{ padding: "35px 25px", textAlign: "center" }}>
+                  <td style={{ padding: "32px 24px", backgroundColor: "#f8f9fa" }}>
                     <table
                       cellPadding="0"
                       cellSpacing="0"
-                      style={{
-                        width: "100%",
-                        borderCollapse: "collapse",
-                      }}
+                      style={{ width: "100%", borderCollapse: "collapse" }}
                     >
                       <tbody>
                         <tr>
-                          <td style={{ textAlign: "center" }}>
+                          <td style={{ width: "100px", verticalAlign: "top" }}>
                             <img
-                              src={props.image || "/placeholder.svg?height=100&width=100"}
+                              src={props.image || "/placeholder.svg?height=80&width=80"}
                               alt=""
-                              width="100"
-                              height="100"
+                              width="80"
+                              height="80"
                               style={{
                                 display: "block",
-                                margin: "0 auto",
-                                border: "4px solid #ffffff",
-                                backgroundColor: "#ffffff",
+                                borderRadius: "50%",
+                                border: "3px solid #ffffff",
+                                boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
                               }}
                             />
                           </td>
-                        </tr>
-                        <tr>
-                          <td style={{ paddingTop: "20px", textAlign: "center" }}>
-                            <span
+                          <td style={{ verticalAlign: "top", paddingLeft: "16px" }}>
+                            <h2
                               style={{
-                                display: "block",
-                                color: "#ffffff",
-                                fontSize: "24px",
-                                fontWeight: "bold",
-                                lineHeight: "1.2",
+                                margin: "0 0 4px 0",
+                                fontSize: "20px",
+                                color: "#1a1a1a",
+                                fontWeight: "600",
                               }}
                             >
                               {props.name}
-                            </span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td style={{ paddingTop: "5px", textAlign: "center" }}>
-                            <span
-                              style={{
-                                display: "block",
-                                color: "#e0e7ff",
-                                fontSize: "16px",
-                                fontStyle: "italic",
-                              }}
-                            >
-                              {props.title}
-                            </span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td style={{ paddingTop: "5px", textAlign: "center" }}>
-                            <span
-                              style={{
-                                display: "block",
-                                color: "#c7d2fe",
-                                fontSize: "14px",
-                              }}
-                            >
-                              {props.company}
-                            </span>
+                            </h2>
+                            {props.title && (
+                              <p
+                                style={{
+                                  margin: "0 0 4px 0",
+                                  fontSize: "16px",
+                                  color: "#4a4a4a",
+                                }}
+                              >
+                                {props.title}
+                              </p>
+                            )}
+                            {props.company && (
+                              <p
+                                style={{
+                                  margin: "0",
+                                  fontSize: "14px",
+                                  color: "#666666",
+                                }}
+                              >
+                                {props.company}
+                              </p>
+                            )}
                           </td>
                         </tr>
                       </tbody>
@@ -103,158 +94,114 @@ const EmailSignature = (props: SignatureProps) => {
                 <tr>
                   <td
                     style={{
-                      backgroundColor: "#4f46e5",
-                      padding: "25px",
+                      padding: "24px",
+                      backgroundColor: "#ffffff",
+                      borderTop: "1px solid #eaeaea",
                     }}
                   >
                     <table
                       cellPadding="0"
                       cellSpacing="0"
-                      style={{
-                        width: "100%",
-                        maxWidth: "320px",
-                        margin: "0 auto",
-                        borderCollapse: "collapse",
-                      }}
+                      style={{ width: "100%", borderCollapse: "collapse" }}
                     >
                       <tbody>
                         {props.email && (
                           <tr>
                             <td style={{ paddingBottom: "12px" }}>
-                              <table cellPadding="0" cellSpacing="0">
-                                <tbody>
-                                  <tr>
-                                    <td style={{ width: "22px", paddingRight: "10px" }}>
-                                      <img
-                                        src="/placeholder.svg?height=16&width=16"
-                                        alt=""
-                                        width="16"
-                                        height="16"
-                                        style={{
-                                          display: "block",
-                                        }}
-                                      />
-                                    </td>
-                                    <td>
-                                      <a
-                                        href={`mailto:${props.email}`}
-                                        style={{
-                                          color: "#ffffff",
-                                          fontSize: "14px",
-                                          textDecoration: "none",
-                                        }}
-                                      >
-                                        {props.email}
-                                      </a>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                              <a
+                                href={`mailto:${props.email}`}
+                                style={{
+                                  color: "#666666",
+                                  textDecoration: "none",
+                                  fontSize: "14px",
+                                  display: "flex",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <img
+                                  src="/icons/mail.svg"
+                                  alt=""
+                                  width="16"
+                                  height="16"
+                                  style={{ marginRight: "8px" }}
+                                />
+                                {props.email}
+                              </a>
                             </td>
                           </tr>
                         )}
                         {props.phone && (
                           <tr>
                             <td style={{ paddingBottom: "12px" }}>
-                              <table cellPadding="0" cellSpacing="0">
-                                <tbody>
-                                  <tr>
-                                    <td style={{ width: "22px", paddingRight: "10px" }}>
-                                      <img
-                                        src="/placeholder.svg?height=16&width=16"
-                                        alt=""
-                                        width="16"
-                                        height="16"
-                                        style={{
-                                          display: "block",
-                                        }}
-                                      />
-                                    </td>
-                                    <td>
-                                      <a
-                                        href={`tel:${props.phone}`}
-                                        style={{
-                                          color: "#ffffff",
-                                          fontSize: "14px",
-                                          textDecoration: "none",
-                                        }}
-                                      >
-                                        {props.phone}
-                                      </a>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                              <a
+                                href={`tel:${props.phone}`}
+                                style={{
+                                  color: "#666666",
+                                  textDecoration: "none",
+                                  fontSize: "14px",
+                                  display: "flex",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <img
+                                  src="/icons/phone.svg"
+                                  alt=""
+                                  width="16"
+                                  height="16"
+                                  style={{ marginRight: "8px" }}
+                                />
+                                {props.phone}
+                              </a>
                             </td>
                           </tr>
                         )}
                         {props.website && (
                           <tr>
                             <td style={{ paddingBottom: "12px" }}>
-                              <table cellPadding="0" cellSpacing="0">
-                                <tbody>
-                                  <tr>
-                                    <td style={{ width: "22px", paddingRight: "10px" }}>
-                                      <img
-                                        src="/placeholder.svg?height=16&width=16"
-                                        alt=""
-                                        width="16"
-                                        height="16"
-                                        style={{
-                                          display: "block",
-                                        }}
-                                      />
-                                    </td>
-                                    <td>
-                                      <a
-                                        href={`https://${props.website}`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        style={{
-                                          color: "#ffffff",
-                                          fontSize: "14px",
-                                          textDecoration: "none",
-                                        }}
-                                      >
-                                        {props.website}
-                                      </a>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                              <a
+                                href={`https://${props.website}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                  color: "#666666",
+                                  textDecoration: "none",
+                                  fontSize: "14px",
+                                  display: "flex",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <img
+                                  src="/icons/globe.svg"
+                                  alt=""
+                                  width="16"
+                                  height="16"
+                                  style={{ marginRight: "8px" }}
+                                />
+                                {props.website}
+                              </a>
                             </td>
                           </tr>
                         )}
                         {props.location && (
                           <tr>
                             <td>
-                              <table cellPadding="0" cellSpacing="0">
-                                <tbody>
-                                  <tr>
-                                    <td style={{ width: "22px", paddingRight: "10px" }}>
-                                      <img
-                                        src="/placeholder.svg?height=16&width=16"
-                                        alt=""
-                                        width="16"
-                                        height="16"
-                                        style={{
-                                          display: "block",
-                                        }}
-                                      />
-                                    </td>
-                                    <td>
-                                      <span
-                                        style={{
-                                          color: "#ffffff",
-                                          fontSize: "14px",
-                                        }}
-                                      >
-                                        {props.location}
-                                      </span>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                              <span
+                                style={{
+                                  color: "#666666",
+                                  fontSize: "14px",
+                                  display: "flex",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <img
+                                  src="/icons/map-pin.svg"
+                                  alt=""
+                                  width="16"
+                                  height="16"
+                                  style={{ marginRight: "8px" }}
+                                />
+                                {props.location}
+                              </span>
                             </td>
                           </tr>
                         )}
@@ -266,9 +213,9 @@ const EmailSignature = (props: SignatureProps) => {
                   <tr>
                     <td
                       style={{
-                        backgroundColor: "#4338ca",
-                        padding: "20px",
-                        textAlign: "center",
+                        padding: "16px 24px",
+                        backgroundColor: "#ffffff",
+                        borderTop: "1px solid #eaeaea",
                       }}
                     >
                       {Object.entries(props.socialMedia).map(([key, social]) =>
@@ -280,9 +227,8 @@ const EmailSignature = (props: SignatureProps) => {
                             rel="noopener noreferrer"
                             style={{
                               display: "inline-block",
-                              marginLeft: "6px",
-                              marginRight: "6px",
-                              textDecoration: "none",
+                              marginRight: "12px",
+                              color: "#666666",
                             }}
                           >
                             <img
@@ -292,6 +238,7 @@ const EmailSignature = (props: SignatureProps) => {
                               height="20"
                               style={{
                                 display: "block",
+                                opacity: 0.8,
                               }}
                             />
                           </a>
