@@ -7,19 +7,59 @@ export default function HtmlToPngConverter() {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #6a11cb, #2575fc);
-    color: white;
     font-family: Arial, sans-serif;
 ">
     <div style="
-        padding: 20px;
-        border-radius: 12px;
+        width: 90%;
+        max-width: 420px;
+        padding: 30px;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
         text-align: center;
+        position: relative;
+        overflow: hidden;
     ">
-        <h2 style="margin: 0;">Welcome!</h2>
-        <p style="margin-top: 8px;">This will download as png</p>
+        <div style="
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+        "></div>
+
+        <h2 style="
+            margin: 0;
+            font-size: 26px;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        ">Welcome!</h2>
+
+        <p style="
+            margin: 12px 0 0;
+            font-size: 16px;
+            color: #666;
+        ">This beautiful card will download as a PNG.</p>
+
+        <div style="
+            margin: 20px auto;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            border-radius: 2px;
+        "></div>
+
+        <p style="
+            font-size: 14px;
+            color: #888;
+        ">Add any content you want here — text, images, icons, or even a QR code!</p>
     </div>
 </div>
+
+
 `)
   const [error, setError] = useState<string | null>(null)
   const previewRef = useRef<HTMLDivElement>(null)
