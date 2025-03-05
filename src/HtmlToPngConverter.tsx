@@ -1,7 +1,26 @@
 import { useState, useRef } from "react"
 
 export default function HtmlToPngConverter() {
-  const [htmlInput, setHtmlInput] = useState("")
+  const [htmlInput, setHtmlInput] = useState(`<div style="
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    font-family: Arial, sans-serif;
+">
+    <div style="
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+    ">
+        <h2 style="margin: 0;">Welcome!</h2>
+        <p style="margin-top: 8px;">This is a container with inline styles.</p>
+    </div>
+</div>
+`)
   const [error, setError] = useState<string | null>(null)
   const previewRef = useRef<HTMLDivElement>(null)
 

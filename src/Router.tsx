@@ -8,7 +8,10 @@ import HtmlToPngConverter from "./HtmlToPngConverter";
 import Navbar from "./components/Interface/NavBar";
 import Home from "./Home";
 import Footer from "./components/Interface/Footer";
-import Loader from "./components/Interface/Loader"; // Import your loader component
+import Loader from "./components/Interface/Loader"; 
+import HtmlToGifConverter from "./HtmlToGif";
+import AnimationToGifConverter from "./GifConverter";
+import AnimationToGif from "./GifConverter";
 
 function AppContent() {
   const [loading, setLoading] = useState(false);
@@ -36,6 +39,7 @@ function AppContent() {
           <Route path="/icons" element={<SocialMediaIcons />} />
           <Route path="/svg-to-png" element={<SvgToPngConverter />} />
           <Route path="/html-to-png" element={<HtmlToPngConverter />} />
+          <Route path="/html-to-gif" element={<AnimationToGif />} />
           <Route path="/cld" element={<ImageGallery />} />
         </Routes>
       )}
