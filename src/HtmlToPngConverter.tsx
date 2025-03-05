@@ -55,7 +55,7 @@ export default function HtmlToPngConverter() {
         <p style="
             font-size: 14px;
             color: #888;
-        ">Add any content you want here — text, images, icons, or even a QR code!</p>
+        ">Add any content you want here — text, images, icons</p>
     </div>
 </div>
 
