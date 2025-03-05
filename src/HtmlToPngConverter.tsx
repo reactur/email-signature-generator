@@ -17,7 +17,7 @@ export default function HtmlToPngConverter() {
         text-align: center;
     ">
         <h2 style="margin: 0;">Welcome!</h2>
-        <p style="margin-top: 8px;">This is a container with inline styles.</p>
+        <p style="margin-top: 8px;">This will download as png</p>
     </div>
 </div>
 `)
