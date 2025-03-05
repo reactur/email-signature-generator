@@ -74,7 +74,7 @@ export default function AnimationGifConverter() {
         if (frameCount >= totalFrames) {
           // Add all frames to GIF
           frames.forEach((canvas) => {
-            gif.addFrame(canvas, { delay: frameDelay, copy: true })
+            gif.addFrame(canvas, { delay: frameDelay })
           })
 
           // Generate and download GIF
